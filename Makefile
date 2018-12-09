@@ -29,16 +29,16 @@ mysql-devenv:
 	docker exec -it $(MYSQL_OPTIONS)
 
 start-prod:
-	$(DEVENV_DOCKER_COMPOSE) up -d
+	$(PROD_DOCKER_COMPOSE) up -d
 
 stop-prod:
-	$(DEVENV_DOCKER_COMPOSE) kill
+	$(PROD_DOCKER_COMPOSE) kill
 
 clear-prod:
-	$(DEVENV_DOCKER_COMPOSE) down -v --remove-orphans
+	$(PROD_DOCKER_COMPOSE) down -v --remove-orphans
 
 build-prod:
-	$(DEVENV_DOCKER_COMPOSE) build
+	$(PROD_DOCKER_COMPOSE) build
 
 mysql-prod:
 	docker exec -it $(MYSQL_OPTIONS)
