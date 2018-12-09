@@ -19,7 +19,7 @@ services:
      volumes: 
        - ./an-web:/var/www/html
      ports:
-       - "13.58.124.194:80:80"
+       - "80:80"
      restart: always
      environment:
        WORDPRESS_DB_HOST: db:3306
