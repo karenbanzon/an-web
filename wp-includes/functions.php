@@ -2349,17 +2349,79 @@ function wp_check_filetype_and_ext( $file, $filename, $mimes = null ) {
 		$real_mime = finfo_file( $finfo, $file );
 		finfo_close( $finfo );
 
-		/*
-		 * If $real_mime doesn't match what we're expecting, we need to do some extra
-		 * vetting of application mime types to make sure this type of file is allowed.
-		 * Other mime types are assumed to be safe, but should be considered unverified.
-		 */
-		if ( $real_mime && ( $real_mime !== $type ) && ( 0 === strpos( $real_mime, 'application' ) ) ) {
-			$allowed = get_allowed_mime_types();
+		// fileinfo often misidentifies obscure files as one of these types
+		$nonspecific_types = array(
+			'application/octet-stream',
+			'application/encrypted',
+			'application/CDFV2-encrypted',
+			'application/zip',
+		);
 
-			if ( ! in_array( $real_mime, $allowed ) ) {
+		/*
+		 * If $real_mime doesn't match the content type we're expecting from the file's extension,
+		 * we need to do some additional vetting. Media types and those listed in $nonspecific_types are
+		 * allowed some leeway, but anything else must exactly match the real content type.
+		 */
+		if ( in_array( $real_mime, $nonspecific_types, true ) ) {
+			// File is a non-specific binary type. That's ok if it's a type that generally tends to be binary.
+			if ( !in_array( substr( $type, 0, strcspn( $type, '/' ) ), array( 'application', 'video', 'audio' ) ) ) {
 				$type = $ext = false;
 			}
+		} elseif ( 0 === strpos( $real_mime, 'video/' ) || 0 === strpos( $real_mime, 'audio/' ) ) {
+			/*
+			 * For these types, only the major type must match the real value.
+			 * This means that common mismatches are forgiven: application/vnd.apple.numbers is often misidentified as application/zip,
+			 * and some media files are commonly named with the wrong extension (.mov instead of .mp4)
+			 */
+			if ( substr( $real_mime, 0, strcspn( $real_mime, '/' ) ) !== substr( $type, 0, strcspn( $type, '/' ) ) ) {
+				$type = $ext = false;
+			}
+		} elseif ( 'text/plain' === $real_mime ) {
+			// A few common file types are occasionally detected as text/plain; allow those.
+			if ( ! in_array(
+				$type,
+				array(
+					'text/plain',
+					'text/csv',
+					'text/richtext',
+					'text/tsv',
+					'text/vtt',
+				)
+			)
+			) {
+				$type = $ext = false;
+			}
+		} elseif ( 'text/rtf' === $real_mime ) {
+			// Special casing for RTF files.
+			if ( ! in_array(
+				$type,
+				array(
+					'text/rtf',
+					'text/plain',
+					'application/rtf',
+				)
+			)
+			) {
+				$type = $ext = false;
+			}
+		} else {
+			if ( $type !== $real_mime ) {
+				/*
+				 * Everything else including image/* and application/*: 
+				 * If the real content type doesn't match the file extension, assume it's dangerous.
+				 */
+				$type = $ext = false;
+			}
+
+		}
+	}
+
+	// The mime type must be allowed 
+	if ( $type ) {
+		$allowed = get_allowed_mime_types();
+
+		if ( ! in_array( $type, $allowed ) ) {
+			$type = $ext = false;
 		}
 	}
 
@@ -5759,6 +5821,26 @@ function wp_is_uuid( $uuid, $version = null ) {
 }
 
 /**
+ * Get unique ID.
+ *
+ * This is a PHP implementation of Underscore's uniqueId method. A static variable
+ * contains an integer that is incremented with each call. This number is returned
+ * with the optional prefix. As such the returned value is not universally unique,
+ * but it is unique across the life of the PHP process.
+ *
+ * @since 5.0.3
+ *
+ * @staticvar int $id_counter
+ *
+ * @param string $prefix Prefix for the returned ID.
+ * @return string Unique ID.
+ */
+function wp_unique_id( $prefix = '' ) {
+	static $id_counter = 0;
+	return $prefix . (string) ++$id_counter;
+}
+
+/**
  * Get last changed date for the specified cache group.
  *
  * @since 4.7.0
@@ -6083,3 +6165,188 @@ function wp_privacy_delete_old_export_files() {
 		}
 	}
 }
+
+// Register People Post Type
+function people_post_type() {
+
+	$labels = array(
+		'name'                  => _x( 'People', 'Post Type General Name', 'anweb' ),
+		'singular_name'         => _x( 'Person', 'Post Type Singular Name', 'anweb' ),
+		'menu_name'             => __( 'People', 'anweb' ),
+		'name_admin_bar'        => __( 'People', 'anweb' ),
+		'archives'              => __( 'Item Archives', 'anweb' ),
+		'attributes'            => __( 'Item Attributes', 'anweb' ),
+		'parent_item_colon'     => __( 'Parent Item:', 'anweb' ),
+		'all_items'             => __( 'All Items', 'anweb' ),
+		'add_new_item'          => __( 'Add New Item', 'anweb' ),
+		'add_new'               => __( 'Add New', 'anweb' ),
+		'new_item'              => __( 'New Item', 'anweb' ),
+		'edit_item'             => __( 'Edit Item', 'anweb' ),
+		'update_item'           => __( 'Update Item', 'anweb' ),
+		'view_item'             => __( 'View Item', 'anweb' ),
+		'view_items'            => __( 'View Items', 'anweb' ),
+		'search_items'          => __( 'Search Item', 'anweb' ),
+		'not_found'             => __( 'Not found', 'anweb' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'anweb' ),
+		'featured_image'        => __( 'Featured Image', 'anweb' ),
+		'set_featured_image'    => __( 'Set featured image', 'anweb' ),
+		'remove_featured_image' => __( 'Remove featured image', 'anweb' ),
+		'use_featured_image'    => __( 'Use as featured image', 'anweb' ),
+		'insert_into_item'      => __( 'Insert into item', 'anweb' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this item', 'anweb' ),
+		'items_list'            => __( 'Items list', 'anweb' ),
+		'items_list_navigation' => __( 'Items list navigation', 'anweb' ),
+		'filter_items_list'     => __( 'Filter items list', 'anweb' ),
+	);
+	$args = array(
+		'label'                 => __( 'Person', 'anweb' ),
+		'description'           => __( 'People in the organization', 'anweb' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields' ),
+		'taxonomies'            => array( 'category', 'post_tag' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 5,
+		'menu_icon'             => 'dashicons-admin-users',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => false,
+		'exclude_from_search'   => true,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'page',
+		'show_in_rest'          => true,
+	);
+	register_post_type( 'people', $args );
+
+}
+add_action( 'init', 'people_post_type', 0 );
+
+// Register Events Post Type
+function events_post_type() {
+
+	$labels = array(
+		'name'                  => _x( 'Events', 'Post Type General Name', 'anweb' ),
+		'singular_name'         => _x( 'Event', 'Post Type Singular Name', 'anweb' ),
+		'menu_name'             => __( 'Events', 'anweb' ),
+		'name_admin_bar'        => __( 'Events', 'anweb' ),
+		'archives'              => __( 'Item Archives', 'anweb' ),
+		'attributes'            => __( 'Item Attributes', 'anweb' ),
+		'parent_item_colon'     => __( 'Parent Item:', 'anweb' ),
+		'all_items'             => __( 'All Items', 'anweb' ),
+		'add_new_item'          => __( 'Add New Item', 'anweb' ),
+		'add_new'               => __( 'Add New', 'anweb' ),
+		'new_item'              => __( 'New Item', 'anweb' ),
+		'edit_item'             => __( 'Edit Item', 'anweb' ),
+		'update_item'           => __( 'Update Item', 'anweb' ),
+		'view_item'             => __( 'View Item', 'anweb' ),
+		'view_items'            => __( 'View Items', 'anweb' ),
+		'search_items'          => __( 'Search Item', 'anweb' ),
+		'not_found'             => __( 'Not found', 'anweb' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'anweb' ),
+		'featured_image'        => __( 'Featured Image', 'anweb' ),
+		'set_featured_image'    => __( 'Set featured image', 'anweb' ),
+		'remove_featured_image' => __( 'Remove featured image', 'anweb' ),
+		'use_featured_image'    => __( 'Use as featured image', 'anweb' ),
+		'insert_into_item'      => __( 'Insert into item', 'anweb' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this item', 'anweb' ),
+		'items_list'            => __( 'Items list', 'anweb' ),
+		'items_list_navigation' => __( 'Items list navigation', 'anweb' ),
+		'filter_items_list'     => __( 'Filter items list', 'anweb' ),
+	);
+	$args = array(
+		'label'                 => __( 'Event', 'anweb' ),
+		'description'           => __( 'Events in the organization', 'anweb' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields' ),
+		'taxonomies'            => array( 'category', 'post_tag' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 5,
+		'menu_icon'             => 'dashicons-calendar-alt',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => false,
+		'exclude_from_search'   => true,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'page',
+		'show_in_rest'          => true,
+	);
+	register_post_type( 'events', $args );
+
+}
+add_action( 'init', 'events_post_type', 0 );
+
+// Register Members Post Type
+function members_post_type() {
+
+	$labels = array(
+		'name'                  => _x( 'Members', 'Post Type General Name', 'anweb' ),
+		'singular_name'         => _x( 'Member', 'Post Type Singular Name', 'anweb' ),
+		'menu_name'             => __( 'Member orgs', 'anweb' ),
+		'name_admin_bar'        => __( 'Member orgs', 'anweb' ),
+		'archives'              => __( 'Item Archives', 'anweb' ),
+		'attributes'            => __( 'Item Attributes', 'anweb' ),
+		'parent_item_colon'     => __( 'Parent Item:', 'anweb' ),
+		'all_items'             => __( 'All Items', 'anweb' ),
+		'add_new_item'          => __( 'Add New Item', 'anweb' ),
+		'add_new'               => __( 'Add New', 'anweb' ),
+		'new_item'              => __( 'New Item', 'anweb' ),
+		'edit_item'             => __( 'Edit Item', 'anweb' ),
+		'update_item'           => __( 'Update Item', 'anweb' ),
+		'view_item'             => __( 'View Item', 'anweb' ),
+		'view_items'            => __( 'View Items', 'anweb' ),
+		'search_items'          => __( 'Search Item', 'anweb' ),
+		'not_found'             => __( 'Not found', 'anweb' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'anweb' ),
+		'featured_image'        => __( 'Featured Image', 'anweb' ),
+		'set_featured_image'    => __( 'Set featured image', 'anweb' ),
+		'remove_featured_image' => __( 'Remove featured image', 'anweb' ),
+		'use_featured_image'    => __( 'Use as featured image', 'anweb' ),
+		'insert_into_item'      => __( 'Insert into item', 'anweb' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this item', 'anweb' ),
+		'items_list'            => __( 'Items list', 'anweb' ),
+		'items_list_navigation' => __( 'Items list navigation', 'anweb' ),
+		'filter_items_list'     => __( 'Filter items list', 'anweb' ),
+	);
+	$args = array(
+		'label'                 => __( 'Member', 'anweb' ),
+		'description'           => __( 'Members in the organization', 'anweb' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields' ),
+		'taxonomies'            => array( 'category', 'post_tag' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 5,
+		'menu_icon'             => 'dashicons-groups',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => false,
+		'exclude_from_search'   => true,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'page',
+		'show_in_rest'          => true,
+	);
+	register_post_type( 'members', $args );
+
+}
+add_action( 'init', 'members_post_type', 0 );
+
+// Register taxonomies for custom post types
+function add_taxonomies_to_custom_types() {
+	register_taxonomy_for_object_type( 'category', 'people' );
+	register_taxonomy_for_object_type( 'category', 'events' );
+	register_taxonomy_for_object_type( 'category', 'members' );
+	register_taxonomy_for_object_type( 'post_tag', 'people' );
+	register_taxonomy_for_object_type( 'post_tag', 'events' );
+	register_taxonomy_for_object_type( 'post_tag', 'members' );
+}
+add_action( 'init', 'add_taxonomies_to_custom_types' );
