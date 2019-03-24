@@ -17,7 +17,7 @@ services:
        - db
      image: wordpress:latest
      volumes: 
-       - ./an-web:/var/www/html
+       - ./:/var/www/html
      ports:
        - "80:80"
      restart: always
