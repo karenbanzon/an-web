@@ -12,12 +12,17 @@ MYSQL_CONTAINER = $(APP_NAME)_rds_1
 MYSQL_CREDENTIALS = -uroot -pROOT_PASSWORD
 MYSQL_DATABASE = $(APP_NAME)_wp
 MYSQL_OPTIONS = $(MYSQL_CONTAINER) mysql $(MYSQL_CREDENTIALS) $(MYSQL_DATABASE)
+THEME_FOLDER = wp-content/themes/an-theme
 
 start-devenv:
 	$(DEVENV_DOCKER_COMPOSE) up -d
 
 stop-devenv:
 	$(DEVENV_DOCKER_COMPOSE) kill
+
+build-css:
+	cd $(THEME_FOLDER) \
+	npx tailwind build styles/main.css -c tailwind.js -o styles/style.css
 
 clear-devenv:
 	$(DEVENV_DOCKER_COMPOSE) down -v --remove-orphans
