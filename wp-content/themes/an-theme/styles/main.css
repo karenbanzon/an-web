@@ -114,6 +114,55 @@ a {
 #branding #logo {
   height: 40px
 }
+
+/** Navigation styles **/
+
+#main-nav .nav-item {
+  position: relative;
+}
+
+#main-nav .nav-dropdown {
+  position: absolute;
+}
+
+/* #menu-header-menu {
+  @apply list-reset;
+}
+
+#menu-header-menu .menu-item {
+  @apply inline-block;
+  position: relative;
+}
+
+#menu-header-menu .menu-item a {
+  @apply block w-full ml-8 text-grey;
+}
+
+#menu-header-menu .menu-item a:hover {
+  @apply text-anblue
+}
+
+#menu-header-menu .menu-item .sub-menu {
+  @apply list-reset ml-8 p-2 z-10 bg-white shadow;
+  position: absolute;
+}
+
+#menu-header-menu .menu-item .sub-menu li {
+  @apply block p-2;
+}
+
+#menu-header-menu .menu-item .sub-menu li:hover {
+  @apply bg-grey-lighter;
+}
+
+#menu-header-menu .menu-item .sub-menu li a {
+  @apply ml-0 p-0 text-grey;
+}
+
+#menu-header-menu .menu-item .sub-menu li a:hover {
+  @apply text-anblue
+} */
+
  
  /**
   * This injects all of Tailwind's utility classes, generated based on your

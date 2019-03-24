@@ -37,9 +37,38 @@
         <div id="branding" class="flex flex-wrap items-center w-3/4 sm:w-3/4 md:w-2/3">
           <a href="<?php echo get_home_url() ?>"><img id="logo" src="<?php echo get_template_directory_uri() ?>/assets/images/an-logo.svg"></a>
           <a href="<?php echo get_home_url() ?>" id="site-title" class="flex font-semibold text-xl text-grey-darkest tracking-tight pl-4 pr-6">Accountable Now</a>
-          <a href="<?php echo get_home_url() ?>/about-us/" class="block w-full lg:w-auto lg:flex pt-6 ml-3 lg:pt-1 lg:pl-6 text-grey hover:text-anblue">About us</a>
-          <a href="<?php echo get_home_url() ?>/our-work/" class="block w-full lg:w-auto lg:flex pt-6 ml-3 lg:pt-1 lg:pl-6 text-grey hover:text-anblue">Our work</a>
-          <a href="<?php echo get_home_url() ?>/events/" class="block w-full lg:w-auto lg:flex pt-6 ml-3 lg:pt-1 lg:pl-6 text-grey hover:text-anblue">Events</a>
+          <nav id="main-nav">
+            <ul class="list-reset">
+              <li class="nav-item group inline-block">
+                <a href="<?php echo get_home_url() ?>/about-us/" class="block w-full lg:w-auto lg:flex pt-6 ml-3 lg:pt-1 lg:pl-6 text-grey hover:text-anblue group-hover:text-anblue">About us &darr;</a>
+                <ul class="nav-dropdown list-reset ml-8 p-2 z-10 bg-white shadow hidden">
+                  <a href="<?php echo get_home_url() ?>/members/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Member orgs</a>
+                  <a href="<?php echo get_home_url() ?>/governance/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Governance</a>
+                  <a href="<?php echo get_home_url() ?>/team/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Team</a>
+                  <a href="<?php echo get_home_url() ?>/strategy/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Strategy</a>
+                  <a href="<?php echo get_home_url() ?>/annual-general-meeting/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Annual general meeting</a>
+                </ul>
+              </li>
+              <li class="nav-item group inline-block">
+                <a href="<?php echo get_home_url() ?>/our-work/" class="block w-full lg:w-auto lg:flex pt-6 ml-3 lg:pt-1 lg:pl-6 text-grey hover:text-anblue group-hover:text-anblue">Our work &darr;</a>
+                <ul class="nav-dropdown list-reset ml-8 p-2 z-10 bg-white shadow hidden">
+                  <a href="<?php echo get_home_url() ?>/annual-reports-policies/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Annual reports & policies</a>
+                  <a href="<?php echo get_home_url() ?>/accountability-commitments/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Accountability commitments</a>
+                  <a href="<?php echo get_home_url() ?>/reporting/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Reporting</a>
+                  <a href="<?php echo get_home_url() ?>/feedback-and-complaints/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Feedback & complaints</a>
+                  <a href="<?php echo get_home_url() ?>/projects-and-partnerships/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Projects & partnerships</a>
+                </ul>
+              </li>
+              <li class="nav-item group inline-block">
+                <a href="<?php echo get_home_url() ?>/events/" class="block w-full lg:w-auto lg:flex pt-6 ml-3 lg:pt-1 lg:pl-6 text-grey hover:text-anblue group-hover:text-anblue">Events &darr;</a>
+                <ul class="nav-dropdown list-reset ml-8 p-2 z-10 bg-white shadow hidden">
+                  <a href="<?php echo get_home_url() ?>/webinars/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Webinars</a>
+                  <a href="<?php echo get_home_url() ?>/workshops/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Workshops</a>
+                  <a href="<?php echo get_home_url() ?>/peer-advice-groups/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Peer advice groups</a>
+                </ul>
+              </li>
+            </ul>
+          </nav>
         </div>
         <div class="text-right w-1/4 sm:w-1/4 md:w-1/3 hidden lg:block">
           <a class="bg-anblue hover:bg-anblue-dark text-white font-semibold py-2 px-4 rounded">
@@ -47,7 +76,7 @@
           </a>
         </div>
         <div class="flex self-start w-1/4 sm:w-1/4 md:w-1/3 block lg:hidden">
-          <button class="flex ml-auto items-center px-3 py-2 border rounded text-anblue  -lighter border-anblue -light hover:text-white hover:border-white">
+          <button class="flex ml-auto items-center px-3 py-2 border rounded text-anblue -lighter border-anblue -light hover:text-white hover:border-white">
             <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
           </button>
         </div>
