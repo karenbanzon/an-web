@@ -16,8 +16,6 @@ services:
      depends_on:
        - db
      image: an_wp:latest
-     volumes: 
-       - ./:/var/www/html/
      ports:
        - "80:80"
      restart: unless-stopped
