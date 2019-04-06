@@ -17,8 +17,7 @@ services:
        - db
      image: wordpress:latest
      volumes: 
-       - ./wp-content/themes/an-theme:/var/www/html/wp-content/themes/an-theme
-       - ./wp-content/plugins/sdp-post-types:/var/www/html/wp-content/plugins/sdp-post-type
+       - ./:/var/www/html/
      ports:
        - "80:80"
      restart: unless-stopped
