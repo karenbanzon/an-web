@@ -35,7 +35,7 @@ mysql-devenv:
 	docker exec -it $(MYSQL_OPTIONS)
 
 start-prod:
-  make build-docker-image
+	make build-docker-image
 	$(PROD_DOCKER_COMPOSE) up -d
 
 stop-prod:
