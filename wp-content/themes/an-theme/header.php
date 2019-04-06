@@ -60,18 +60,21 @@
                 </ul>
               </li>
               <li class="nav-item group inline-block">
-                <a href="<?php echo get_home_url() ?>/events/" class="block w-full lg:w-auto lg:flex pt-6 ml-3 lg:pt-1 lg:pl-6 text-grey hover:text-anblue group-hover:text-anblue">Events &darr;</a>
+                <a href="<?php echo get_home_url() ?>/latest/" class="block w-full lg:w-auto lg:flex pt-6 ml-3 lg:pt-1 lg:pl-6 text-grey hover:text-anblue group-hover:text-anblue">The latest &darr;</a>
                 <ul class="nav-dropdown list-reset ml-8 p-2 z-10 bg-white shadow hidden">
-                  <a href="<?php echo get_home_url() ?>/webinars/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Webinars</a>
-                  <a href="<?php echo get_home_url() ?>/workshops/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Workshops</a>
-                  <a href="<?php echo get_home_url() ?>/peer-advice-groups/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Peer advice groups</a>
+                  <a href="<?php echo get_home_url() ?>/latest/webinars/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Webinars</a>
+                  <a href="<?php echo get_home_url() ?>/latest/workshops/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Workshops</a>
+                  <a href="<?php echo get_home_url() ?>/latest/peer-advice-groups/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Peer advice groups</a>
                 </ul>
               </li>
             </ul>
           </nav>
         </div>
         <div class="text-right w-1/4 sm:w-1/4 md:w-1/3 hidden lg:block">
-          <a class="bg-anblue hover:bg-anblue-dark text-white font-semibold py-2 px-4 rounded">
+          <a href="<?php echo get_home_url() ?>/feedback-and-complaints/" class="bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold py-2 px-4 mr-2 rounded">
+            Feedback &amp; complaints
+          </a>
+          <a href="<?php echo get_home_url() ?>/join-us/" class="bg-anblue border border-anblue hover:border-anblue-dark hover:bg-anblue-dark text-white font-semibold py-2 px-4 rounded">
             Join us
           </a>
         </div>
