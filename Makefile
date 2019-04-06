@@ -7,11 +7,8 @@ APP_NAME = anweb
 DEVENV_DOCKER_COMPOSE = docker-compose -p $(APP_NAME) -f $(shell pwd)/docker-compose.yml
 PROD_DOCKER_COMPOSE = docker-compose -p $(APP_NAME) -f $(shell pwd)/docker-compose-prod.yml
 
-BACKEND_CONTAINER = $(APP_NAME)_backend_1
-MYSQL_CONTAINER = $(APP_NAME)_rds_1
-MYSQL_CREDENTIALS = -uroot -pROOT_PASSWORD
-MYSQL_DATABASE = $(APP_NAME)_wp
-MYSQL_OPTIONS = $(MYSQL_CONTAINER) mysql $(MYSQL_CREDENTIALS) $(MYSQL_DATABASE)
+DOCKER_IMAGE = an_wp
+VERSION_TAG = $(shell git rev-parse --short HEAD)
 THEME_FOLDER = wp-content/themes/an-theme
 
 start-devenv:
@@ -29,6 +26,10 @@ clear-devenv:
 
 build-devenv:
 	$(DEVENV_DOCKER_COMPOSE) build
+
+build-docker-image:
+	docker build . --tag ${DOCKER_IMAGE}:${VERSION_TAG}
+	docker tag ${DOCKER_IMAGE}:${VERSION_TAG} ${DOCKER_IMAGE}:latest
 
 mysql-devenv:
 	docker exec -it $(MYSQL_OPTIONS)
