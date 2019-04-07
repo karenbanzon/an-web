@@ -2,7 +2,7 @@
 <main id="content" class="page-content flex flex-wrap justify-center w-full">
   <section class="flex w-full p-6">
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+    <article id="post-<?php the_ID(); ?>" <?php post_class('w-full p-6'); ?>>
       <?php if ( has_post_thumbnail() ) { ?>
       <header class="header page-hero p-6" style="background-image: url(<?php echo the_post_thumbnail_url(); ?>)">
         <div class="overlay"></div>

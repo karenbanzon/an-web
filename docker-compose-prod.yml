@@ -16,6 +16,9 @@ services:
      depends_on:
        - db
      image: an_wp:latest
+     volumes:
+       - ./wp-content/themes/an-theme:/var/www/html/wp-content/themes/an-theme
+       - ./wp-content/plugins/sdp-post-types:/var/www/html/wp-content/plugins/sdp-post-types
      ports:
        - "80:80"
      restart: unless-stopped

@@ -35,8 +35,8 @@ mysql-devenv:
 	docker exec -it $(MYSQL_OPTIONS)
 
 start-prod:
-	make build-docker-image
 	$(PROD_DOCKER_COMPOSE) up -d
+	docker exec anweb_wordpress_1 chown -R www-data:www-data /var/www/html/wp-content
 
 stop-prod:
 	$(PROD_DOCKER_COMPOSE) kill
