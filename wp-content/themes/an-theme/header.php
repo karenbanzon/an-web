@@ -33,39 +33,46 @@
 <body <?php body_class(); ?>>
   <div id="wrapper" class="hfeed">
     <header>
-      <nav class="flex items-center justify-between flex-wrap bg-white border-b-4 border-anblue p-6">
+      <nav class="flex items-center justify-between flex-wrap bg-white border-b-4 border-anblue px-6 py-2">
         <div id="branding" class="flex flex-wrap items-center w-3/4 sm:w-3/4 md:w-2/3">
           <a href="<?php echo get_home_url() ?>"><img id="logo" src="<?php echo get_template_directory_uri() ?>/assets/images/an-logo.svg"></a>
           <a href="<?php echo get_home_url() ?>" id="site-title" class="flex font-semibold text-xl text-grey-darkest tracking-tight pl-4 pr-6">Accountable Now</a>
           <nav id="main-nav">
             <ul class="list-reset">
-              <li class="nav-item group inline-block">
+              <li class="nav-item group inline-block px-2 py-4">
                 <a href="<?php echo get_home_url() ?>/about-us/" class="block w-full lg:w-auto lg:flex pt-6 ml-3 lg:pt-1 lg:pl-6 text-grey hover:text-anblue group-hover:text-anblue">About us &darr;</a>
                 <ul class="nav-dropdown list-reset ml-8 p-2 z-10 bg-white shadow hidden">
-                  <a href="<?php echo get_home_url() ?>/members/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Member orgs</a>
-                  <a href="<?php echo get_home_url() ?>/governance/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Governance</a>
-                  <a href="<?php echo get_home_url() ?>/team/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Team</a>
-                  <a href="<?php echo get_home_url() ?>/strategy/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Strategy</a>
-                  <a href="<?php echo get_home_url() ?>/annual-general-meeting/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Annual general meeting</a>
+                  <a href="<?php echo get_home_url() ?>/about-us/dynamic-accountability/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Dynamic Accountability</a>
+                  <a href="<?php echo get_home_url() ?>/about-us/strategy/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Strategy</a>
+                  <a href="<?php echo get_home_url() ?>/about-us/our-members/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Our members</a>
+                  <a href="<?php echo get_home_url() ?>/about-us/governance/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Governance</a>
+                  <a href="<?php echo get_home_url() ?>/about-us/team/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Team</a>
+                  <a href="<?php echo get_home_url() ?>/about-us/annual-general-meeting/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Annual general meeting</a>
                 </ul>
               </li>
-              <li class="nav-item group inline-block">
+              <li class="nav-item group inline-block px-2 py-4">
                 <a href="<?php echo get_home_url() ?>/our-work/" class="block w-full lg:w-auto lg:flex pt-6 ml-3 lg:pt-1 lg:pl-6 text-grey hover:text-anblue group-hover:text-anblue">Our work &darr;</a>
                 <ul class="nav-dropdown list-reset ml-8 p-2 z-10 bg-white shadow hidden">
-                  <a href="<?php echo get_home_url() ?>/annual-reports-policies/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Annual reports & policies</a>
-                  <a href="<?php echo get_home_url() ?>/accountability-commitments/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Accountability commitments</a>
-                  <a href="<?php echo get_home_url() ?>/reporting/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Reporting</a>
-                  <a href="<?php echo get_home_url() ?>/feedback-and-complaints/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Feedback & complaints</a>
-                  <a href="<?php echo get_home_url() ?>/projects-and-partnerships/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Projects & partnerships</a>
+                  <a href="<?php echo get_home_url() ?>/our-work/accountability-commitments/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Accountability commitments</a>
+                  <a href="<?php echo get_home_url() ?>/our-work/reporting/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Reporting</a>
+                  <a href="<?php echo get_home_url() ?>/our-work/feedback-and-complaints/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Feedback & complaints</a>
+                  <a href="<?php echo get_home_url() ?>/our-work/projects-and-partnerships/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Projects & partnerships</a>
                 </ul>
               </li>
-              <li class="nav-item group inline-block">
-                <a href="<?php echo get_home_url() ?>/latest/" class="block w-full lg:w-auto lg:flex pt-6 ml-3 lg:pt-1 lg:pl-6 text-grey hover:text-anblue group-hover:text-anblue">The latest &darr;</a>
+              <li class="nav-item group inline-block px-2 py-4">
+                <a href="<?php echo get_home_url() ?>/members-corner/" class="block w-full lg:w-auto lg:flex pt-6 ml-3 lg:pt-1 lg:pl-6 text-grey hover:text-anblue group-hover:text-anblue">Member's corner &darr;</a>
                 <ul class="nav-dropdown list-reset ml-8 p-2 z-10 bg-white shadow hidden">
-                  <a href="<?php echo get_home_url() ?>/latest/webinars/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Webinars</a>
-                  <a href="<?php echo get_home_url() ?>/latest/workshops/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Workshops</a>
-                  <a href="<?php echo get_home_url() ?>/latest/peer-advice-groups/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Peer advice groups</a>
+                  <a href="<?php echo get_home_url() ?>/members-corner/webinars/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Webinars</a>
+                  <a href="<?php echo get_home_url() ?>/members-corner/workshops/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Workshops</a>
+                  <a href="<?php echo get_home_url() ?>/members-corner/peer-advice-groups/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Peer advice groups</a>
+                  <a href="<?php echo get_home_url() ?>/members-corner/good-practice-library/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Good practice library</a>
+                  <a href="<?php echo get_home_url() ?>/join-us/" class="bg-anblue border border-anblue hover:border-anblue-dark hover:bg-anblue-dark text-white font-semibold block text-center mt-2 py-1 px-2 rounded">
+                    Join us
+                  </a>
                 </ul>
+              </li>
+              <li class="nav-item group inline-block px-2 py-4">
+                <a href="<?php echo get_home_url() ?>/latest/" class="block w-full lg:w-auto lg:flex pt-6 ml-3 lg:pt-1 lg:pl-6 text-grey hover:text-anblue group-hover:text-anblue">The latest</a>
               </li>
             </ul>
           </nav>
@@ -79,7 +86,7 @@
           </a>
         </div>
         <div class="flex self-start w-1/4 sm:w-1/4 md:w-1/3 block lg:hidden">
-          <button class="flex ml-auto items-center px-3 py-2 border rounded text-anblue -lighter border-anblue -light hover:text-white hover:border-white">
+          <button class="flex ml-auto items-center px-3 py-2 border rounded text-anblue-lighter border-anblue-light hover:text-white hover:border-white">
             <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
           </button>
         </div>

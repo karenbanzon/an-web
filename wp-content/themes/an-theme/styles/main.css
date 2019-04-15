@@ -9,18 +9,18 @@
  *
  * @import "tailwindcss/preflight";
  */
- @tailwind preflight;
+@tailwind preflight;
 
- /**
+/**
   * This injects any component classes registered by plugins.
   *
   * If using `postcss-import`, use this import instead:
   *
   * @import "tailwindcss/components";
   */
- @tailwind components;
- 
- /**
+@tailwind components;
+
+/**
   * Here you would add any of your custom component classes; stuff that you'd
   * want loaded *before* the utilities so that the utilities could still
   * override them.
@@ -36,8 +36,17 @@
   * @import "components/forms";
   */
 
-h1, h2, h3, h4, h5, h6, body, html {
-  font-family: 'Hurme', system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, 'Helvetica Neue', sans-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+body,
+html {
+  font-family: 'Hurme', system-ui, BlinkMacSystemFont, -apple-system, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, 'Helvetica Neue',
+    sans-serif;
 }
 
 a {
@@ -45,7 +54,8 @@ a {
   cursor: pointer;
 }
 
-.page-content p, .post-content p {
+.page-content p,
+.post-content p {
   margin-bottom: 1rem;
   line-height: 1.5rem;
 }
@@ -69,18 +79,23 @@ a {
 }
 
 .page-hero .page-title {
-  position: relative
+  position: relative;
 }
 
-
-#home-hero::before { background-image: url(../assets/images/hero-b.jpg); }
-#home-projects::before { background-image: url(../assets/images/hero-c.jpg); }
-#home-events::before { background-image: url(../assets/images/hero-a.jpg); }
+#home-hero::before {
+  background-image: url(../assets/images/hero-b.jpg);
+}
+#home-projects::before {
+  background-image: url(../assets/images/hero-c.jpg);
+}
+#home-events::before {
+  background-image: url(../assets/images/hero-a.jpg);
+}
 
 .home-section::before {
   background-size: cover;
   background-attachment: fixed;
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: 0;
@@ -98,7 +113,7 @@ a {
 
 .home-section::after {
   background-color: #ffffff;
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: 0px;
@@ -112,7 +127,7 @@ a {
 /** Header styles **/
 
 #branding #logo {
-  height: 40px
+  height: 40px;
 }
 
 /** Navigation styles **/
@@ -123,6 +138,32 @@ a {
 
 #main-nav .nav-dropdown {
   position: absolute;
+}
+
+/** Tab styles **/
+
+.tab-nav a {
+  @apply items-center text-center border-b-4 border-grey text-grey font-semibold py-2 px-4;
+  transition: all 0.3s ease-in;
+}
+
+.tab-nav a:hover {
+  @apply border-grey-darker text-grey-darker bg-grey-lighter;
+}
+
+.tab-nav a.active {
+  @apply border-anblue text-anblue pointer-events-none;
+}
+
+/** Round image styles **/
+.round-image {
+  @apply w-full flex-1 rounded-full bg-cover;
+}
+
+.round-image:before {
+  content: '';
+  display: block;
+  padding-top: 100%; /* ratio of 1:1*/
 }
 
 /* #menu-header-menu {
@@ -163,8 +204,7 @@ a {
   @apply text-anblue
 } */
 
- 
- /**
+/**
   * This injects all of Tailwind's utility classes, generated based on your
   * config file.
   *
@@ -172,9 +212,9 @@ a {
   *
   * @import "tailwindcss/utilities";
   */
- @tailwind utilities;
- 
- /**
+@tailwind utilities;
+
+/**
   * Here you would add any custom utilities you need that don't come out of the
   * box with Tailwind.
   *
@@ -188,4 +228,3 @@ a {
   * @import "utilities/background-patterns";
   * @import "utilities/skew-transforms";
   */
- 

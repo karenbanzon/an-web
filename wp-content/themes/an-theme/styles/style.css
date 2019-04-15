@@ -625,7 +625,7 @@ a {
 .home-section::before {
   background-size: cover;
   background-attachment: fixed;
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: 0;
@@ -643,7 +643,7 @@ a {
 
 .home-section::after {
   background-color: #fff;
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: 0px;
@@ -668,6 +668,49 @@ a {
 
 #main-nav .nav-dropdown {
   position: absolute;
+}
+
+/** Tab styles **/
+
+.tab-nav a {
+  align-items: center;
+  text-align: center;
+  border-bottom-width: 4px;
+  border-color: #b8c2cc;
+  color: #b8c2cc;
+  font-weight: 600;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  transition: all .3s ease-in;
+}
+
+.tab-nav a:hover {
+  border-color: #606f7b;
+  color: #606f7b;
+  background-color: #f1f5f8;
+}
+
+.tab-nav a.active {
+  border-color: #05b4be;
+  color: #05b4be;
+  pointer-events: none;
+}
+
+/** Round image styles **/
+
+.round-image {
+  width: 100%;
+  flex: 1 1 0%;
+  border-radius: 9999px;
+  background-size: cover;
+}
+
+.round-image:before {
+  content: '';
+  display: block;
+  padding-top: 100%; /* ratio of 1:1*/
 }
 
 /* #menu-header-menu {
