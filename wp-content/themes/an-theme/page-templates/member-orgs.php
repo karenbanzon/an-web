@@ -37,7 +37,7 @@
             'category_name' => 'full',
             'posts_per_page' => -1,
             'orderby' => 'title',
-            'order' => 'DESC'
+            'order' => 'ASC'
           ) );
 
           if ( $full->have_posts() ) : while ( $full->have_posts() ) : $full->the_post();
@@ -66,7 +66,7 @@
             'category_name' => 'affiliate',
             'posts_per_page' => -1,
             'orderby' => 'title',
-            'order' => 'DESC'
+            'order' => 'ASC'
           ) );
 
           if ( $affiliates->have_posts() ) : while ( $affiliates->have_posts() ) : $affiliates->the_post();
@@ -95,7 +95,7 @@
             'category_name' => 'former',
             'posts_per_page' => -1,
             'orderby' => 'title',
-            'order' => 'DESC'
+            'order' => 'ASC'
           ) );
 
           if ( $former->have_posts() ) : while ( $former->have_posts() ) : $former->the_post();
