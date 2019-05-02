@@ -35,7 +35,9 @@
           $full = new WP_Query( array(
             'post_type' => 'members',
             'category_name' => 'full',
-            'posts_per_page' => -1
+            'posts_per_page' => -1,
+            'orderby' => 'title',
+            'order' => 'ASC'
           ) );
 
           if ( $full->have_posts() ) : while ( $full->have_posts() ) : $full->the_post();
@@ -62,7 +64,9 @@
           $affiliates = new WP_Query( array(
             'post_type' => 'members',
             'category_name' => 'affiliate',
-            'posts_per_page' => -1
+            'posts_per_page' => -1,
+            'orderby' => 'title',
+            'order' => 'ASC'
           ) );
 
           if ( $affiliates->have_posts() ) : while ( $affiliates->have_posts() ) : $affiliates->the_post();
@@ -89,7 +93,9 @@
           $former = new WP_Query( array(
             'post_type' => 'members',
             'category_name' => 'former',
-            'posts_per_page' => -1
+            'posts_per_page' => -1,
+            'orderby' => 'title',
+            'order' => 'ASC'
           ) );
 
           if ( $former->have_posts() ) : while ( $former->have_posts() ) : $former->the_post();
