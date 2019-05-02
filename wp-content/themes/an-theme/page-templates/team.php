@@ -39,10 +39,12 @@
 
           if ( $board->have_posts() ) : while ( $board->have_posts() ) : $board->the_post(); ?>
 
-          <div class="flex w-full lg:w-1/3 p-4">
+          <div class="flex w-full lg:w-1/4 p-4">
             <div class="flex flex-wrap flex-1 items-center card shadow p-2">
               <?php if ( has_post_thumbnail() ) { ?>
-                <div class="round-image mb-4" style="background-image: url(<?php echo the_post_thumbnail_url(); ?>)">
+                <div class="flex flex-wrap w-2/3 m-auto">
+                  <div class="round-image mb-4" style="background-image: url(<?php echo the_post_thumbnail_url(); ?>)">
+                  </div>
                 </div>
               <?php } ?>
               <div class="w-full px-2">
@@ -70,7 +72,9 @@
           <div class="flex w-full lg:w-1/4 p-4">
             <div class="flex flex-wrap flex-1 items-center card shadow p-2">
               <?php if ( has_post_thumbnail() ) { ?>
-                <div class="round-image mb-4" style="background-image: url(<?php echo the_post_thumbnail_url(); ?>)">
+                <div class="flex flex-wrap w-2/3 m-auto">
+                  <div class="round-image mb-4" style="background-image: url(<?php echo the_post_thumbnail_url(); ?>)">
+                  </div>
                 </div>
               <?php } ?>
               <div class="w-full px-2">
@@ -103,14 +107,19 @@
 
           <div class="flex w-full lg:w-1/2 p-4">
             <div class="flex flex-wrap flex-1 items-center card shadow p-2">
-              <?php if ( has_post_thumbnail() ) { ?>
-                <div class="w-full flex p-6">
-                  <div class="round-image mb-4" style="background-image: url(<?php echo the_post_thumbnail_url(); ?>)">
+              <div class="flex flex-wrap items-center w-full">
+                <?php if ( has_post_thumbnail() ) { ?>
+                  <div class="w-1/3 flex px-6">
+                    <div class="round-image mb-4" style="background-image: url(<?php echo the_post_thumbnail_url(); ?>)">
+                    </div>
                   </div>
+                <?php } ?>
+                <div class="w-2/3 flex">
+                  <h4 class="pb-1"><?php the_title(); ?></h4>
                 </div>
-              <?php } ?>
+              </div>
+              
               <div class="w-full px-2">
-                <h4 class="pb-1"><?php the_title(); ?></h4>
                 <span class="text-xs"><?php the_content(); ?></span>
                 <p class="text-xs text-center"><a href="mailto:<?php echo $email ?>" class="text-grey hover:font-bold hover:text-anblue">Email</a> | <a href="<?php echo $linkedin ?>" class="text-grey hover:font-bold hover:text-anblue">Linkedin</a> | <a href="tel:<?php echo $phone ?>" class="text-grey hover:font-bold hover:text-anblue">Phone: <?php echo $phone ?></a></p>
               </div>

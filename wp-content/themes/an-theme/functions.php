@@ -243,7 +243,17 @@ class People_Meta_Box {
 		'people',
 	);
 	private $fields = array(
-		array(
+    array(
+			'id' => 'title',
+			'label' => 'Title / job description',
+			'type' => 'etxt',
+    ),
+    array(
+			'id' => 'title-secondary',
+			'label' => 'Secondary title / job description',
+			'type' => 'email',
+		),
+    array(
 			'id' => 'email-address',
 			'label' => 'Email address',
 			'type' => 'email',
