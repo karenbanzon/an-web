@@ -34,7 +34,8 @@
 
           $full = new WP_Query( array(
             'post_type' => 'members',
-            'category_name' => 'full'
+            'category_name' => 'full',
+            'posts_per_page' => -1
           ) );
 
           if ( $full->have_posts() ) : while ( $full->have_posts() ) : $full->the_post();
@@ -47,10 +48,6 @@
               <?php if ( has_post_thumbnail() ) { ?>
                 <img src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
               <?php } ?>
-              <div class="w-full px-2 text-center">
-                <h4 class="pb-1 text-black"><?php the_title(); ?></h4>
-                <span class="text-xs text-grey"><?php the_content(); ?></span>
-              </div>
             </div>
           </a>
 
@@ -64,7 +61,8 @@
 
           $affiliates = new WP_Query( array(
             'post_type' => 'members',
-            'category_name' => 'affiliate'
+            'category_name' => 'affiliate',
+            'posts_per_page' => -1
           ) );
 
           if ( $affiliates->have_posts() ) : while ( $affiliates->have_posts() ) : $affiliates->the_post();
@@ -77,10 +75,6 @@
               <?php if ( has_post_thumbnail() ) { ?>
                 <img src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
               <?php } ?>
-              <div class="w-full px-2 text-center">
-                <h4 class="pb-1 text-black"><?php the_title(); ?></h4>
-                <span class="text-xs text-grey"><?php the_content(); ?></span>
-              </div>
             </div>
           </a>
 
@@ -94,7 +88,8 @@
 
           $former = new WP_Query( array(
             'post_type' => 'members',
-            'category_name' => 'former'
+            'category_name' => 'former',
+            'posts_per_page' => -1
           ) );
 
           if ( $former->have_posts() ) : while ( $former->have_posts() ) : $former->the_post();
@@ -107,10 +102,6 @@
               <?php if ( has_post_thumbnail() ) { ?>
                 <img src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
               <?php } ?>
-              <div class="w-full px-2 text-center">
-                <h4 class="pb-1 text-black"><?php the_title(); ?></h4>
-                <span class="text-xs text-grey"><?php the_content(); ?></span>
-              </div>
             </div>
           </a>
 

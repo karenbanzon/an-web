@@ -159,6 +159,8 @@ class Sdp_Post_Types {
 		$this->loader->add_action( 'init', $plugin_admin, 'create_people_post_type' );
 		$this->loader->add_action( 'init', $plugin_admin, 'create_events_post_type' );
 		$this->loader->add_action( 'init', $plugin_admin, 'create_members_post_type' );
+		$this->loader->add_action( 'init', $plugin_admin, 'create_documents_post_type' );
+		$this->loader->add_action( 'init', $plugin_admin, 'create_resources_post_type' );
 		$this->loader->add_action( 'init', $plugin_admin, 'add_taxonomies_to_custom_types' );
 
 	}

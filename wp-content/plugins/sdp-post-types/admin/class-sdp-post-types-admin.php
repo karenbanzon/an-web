@@ -277,14 +277,132 @@ class Sdp_Post_Types_Admin {
 
 	}
 
+	// Register Documents Post Type
+	function create_documents_post_type() {
+
+		$labels = array(
+			'name'                  => _x( 'Documents', 'Post Type General Name', 'anweb' ),
+			'singular_name'         => _x( 'Document', 'Post Type Singular Name', 'anweb' ),
+			'menu_name'             => __( 'Documents', 'anweb' ),
+			'name_admin_bar'        => __( 'Documents', 'anweb' ),
+			'archives'              => __( 'Item Archives', 'anweb' ),
+			'attributes'            => __( 'Item Attributes', 'anweb' ),
+			'parent_item_colon'     => __( 'Parent Item:', 'anweb' ),
+			'all_items'             => __( 'All Items', 'anweb' ),
+			'add_new_item'          => __( 'Add New Item', 'anweb' ),
+			'add_new'               => __( 'Add New', 'anweb' ),
+			'new_item'              => __( 'New Item', 'anweb' ),
+			'edit_item'             => __( 'Edit Item', 'anweb' ),
+			'update_item'           => __( 'Update Item', 'anweb' ),
+			'view_item'             => __( 'View Item', 'anweb' ),
+			'view_items'            => __( 'View Items', 'anweb' ),
+			'search_items'          => __( 'Search Item', 'anweb' ),
+			'not_found'             => __( 'Not found', 'anweb' ),
+			'not_found_in_trash'    => __( 'Not found in Trash', 'anweb' ),
+			'featured_image'        => __( 'Featured Image', 'anweb' ),
+			'set_featured_image'    => __( 'Set featured image', 'anweb' ),
+			'remove_featured_image' => __( 'Remove featured image', 'anweb' ),
+			'use_featured_image'    => __( 'Use as featured image', 'anweb' ),
+			'insert_into_item'      => __( 'Insert into item', 'anweb' ),
+			'uploaded_to_this_item' => __( 'Uploaded to this item', 'anweb' ),
+			'items_list'            => __( 'Items list', 'anweb' ),
+			'items_list_navigation' => __( 'Items list navigation', 'anweb' ),
+			'filter_items_list'     => __( 'Filter items list', 'anweb' ),
+		);
+		$args = array(
+			'label'                 => __( 'Document', 'anweb' ),
+			'description'           => __( 'Documents in Accountable Now', 'anweb' ),
+			'labels'                => $labels,
+			'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'excerpt'),
+			'taxonomies'            => array( 'category', 'post_tag' ),
+			'hierarchical'          => false,
+			'public'                => true,
+			'show_ui'               => true,
+			'show_in_menu'          => true,
+			'menu_position'         => 5,
+			'menu_icon'             => 'dashicons-media-default',
+			'show_in_admin_bar'     => true,
+			'show_in_nav_menus'     => true,
+			'can_export'            => true,
+			'has_archive'           => false,
+			'exclude_from_search'   => true,
+			'publicly_queryable'    => true,
+			'capability_type'       => 'page',
+			'show_in_rest'          => true,
+		);
+		register_post_type( 'documents', $args );
+
+	}
+
+	// Register Good Practice Library Post Type
+	function create_resources_post_type() {
+
+		$labels = array(
+			'name'                  => _x( 'Resources', 'Post Type General Name', 'anweb' ),
+			'singular_name'         => _x( 'Resource', 'Post Type Singular Name', 'anweb' ),
+			'menu_name'             => __( 'Resources', 'anweb' ),
+			'name_admin_bar'        => __( 'Resources', 'anweb' ),
+			'archives'              => __( 'Item Archives', 'anweb' ),
+			'attributes'            => __( 'Item Attributes', 'anweb' ),
+			'parent_item_colon'     => __( 'Parent Item:', 'anweb' ),
+			'all_items'             => __( 'All Items', 'anweb' ),
+			'add_new_item'          => __( 'Add New Item', 'anweb' ),
+			'add_new'               => __( 'Add New', 'anweb' ),
+			'new_item'              => __( 'New Item', 'anweb' ),
+			'edit_item'             => __( 'Edit Item', 'anweb' ),
+			'update_item'           => __( 'Update Item', 'anweb' ),
+			'view_item'             => __( 'View Item', 'anweb' ),
+			'view_items'            => __( 'View Items', 'anweb' ),
+			'search_items'          => __( 'Search Item', 'anweb' ),
+			'not_found'             => __( 'Not found', 'anweb' ),
+			'not_found_in_trash'    => __( 'Not found in Trash', 'anweb' ),
+			'featured_image'        => __( 'Featured Image', 'anweb' ),
+			'set_featured_image'    => __( 'Set featured image', 'anweb' ),
+			'remove_featured_image' => __( 'Remove featured image', 'anweb' ),
+			'use_featured_image'    => __( 'Use as featured image', 'anweb' ),
+			'insert_into_item'      => __( 'Insert into item', 'anweb' ),
+			'uploaded_to_this_item' => __( 'Uploaded to this item', 'anweb' ),
+			'items_list'            => __( 'Items list', 'anweb' ),
+			'items_list_navigation' => __( 'Items list navigation', 'anweb' ),
+			'filter_items_list'     => __( 'Filter items list', 'anweb' ),
+		);
+		$args = array(
+			'label'                 => __( 'Resources', 'anweb' ),
+			'description'           => __( 'Resources', 'anweb' ),
+			'labels'                => $labels,
+			'supports'              => array( 'title', 'editor', 'thumbnail', 'revisions', 'excerpt'),
+			'taxonomies'            => array( 'category', 'post_tag' ),
+			'hierarchical'          => false,
+			'public'                => true,
+			'show_ui'               => true,
+			'show_in_menu'          => true,
+			'menu_position'         => 5,
+			'menu_icon'             => 'dashicons-heart',
+			'show_in_admin_bar'     => true,
+			'show_in_nav_menus'     => true,
+			'can_export'            => true,
+			'has_archive'           => false,
+			'exclude_from_search'   => true,
+			'publicly_queryable'    => true,
+			'capability_type'       => 'page',
+			'show_in_rest'          => true,
+		);
+		register_post_type( 'resources', $args );
+
+	}
+
 
 	// Register taxonomies for custom post types
 	public function add_taxonomies_to_custom_types() {
 		register_taxonomy_for_object_type( 'category', 'people' );
 		register_taxonomy_for_object_type( 'category', 'events' );
 		register_taxonomy_for_object_type( 'category', 'members' );
+		register_taxonomy_for_object_type( 'category', 'documents' );
+		register_taxonomy_for_object_type( 'category', 'resources' );
 		register_taxonomy_for_object_type( 'post_tag', 'people' );
 		register_taxonomy_for_object_type( 'post_tag', 'events' );
 		register_taxonomy_for_object_type( 'post_tag', 'members' );
+		register_taxonomy_for_object_type( 'post_tag', 'documents' );
+		register_taxonomy_for_object_type( 'post_tag', 'resources' );
 	}
 }
