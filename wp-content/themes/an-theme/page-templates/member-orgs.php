@@ -1,14 +1,14 @@
-<?php /* Template Name: Member orgs */ ?>
+<?php /* Template Name: Team */ ?>
 
 <?php get_header(); ?>
 <main id="content" class="page-content flex flex-wrap justify-center w-full">
-  <section class="flex w-full p-6">
+  <section class="flex w-full">
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-    <article id="post-<?php the_ID(); ?>" <?php post_class('w-full p-6'); ?>>
+    <article id="post-<?php the_ID(); ?>" <?php post_class('w-full'); ?>>
       <?php if ( has_post_thumbnail() ) { ?>
-      <header class="header page-hero p-6" style="background-image: url(<?php echo the_post_thumbnail_url() ?>)">
-        <div class="overlay"></div>
-        <div class="page-title"><h1 class="entry-title w-full lg:w-2/3 ml-auto mr-auto mt-4 mb-4 pt-6 pb-6 text-grey-darkest"><?php the_title(); ?></h1></div>
+      <header class="header page-hero p-6" style="background-image: url(<?php echo the_post_thumbnail_url(); ?>)">
+        <div class="overlay bg-anblue"></div>
+        <div class="page-title"><h1 class="entry-title w-full lg:w-2/3 ml-auto mr-auto mt-4 mb-4 pt-6 pb-6 text-white"><?php the_title(); ?></h1></div>
       </header>
       <?php } else { ?>
       <header class="header w-full lg:w-2/3 m-auto p-6">
@@ -22,74 +22,102 @@
 
       <hr class="w-full lg:w-2/3 border-b border-grey">
 
-      <!-- Full members -->
-      <div class="flex flex-wrap w-full lg:w-2/3 m-auto p-6">
-      <?php
+      <nav class="tab-nav flex flex-wrap w-full lg:w-2/3 m-auto">
+        <a href="" class="w-1/3 active" data-tab-name="full-members">Full members</a>
+        <a href="" class="w-1/3" data-tab-name="affiliates">Affiliates</a>
+        <a href="" class="w-1/3" data-tab-name="former-members">Former members</a>
+      </nav>
 
-        $fullmembers = new WP_Query( array(
-          'post_type' => 'members',
-          'category_name' => 'full'
-        ) );
+      <div class="tab-view active w-full" data-tab-view="full-members">
+        <div class="flex flex-wrap w-full lg:w-2/3 m-auto p-6">
+          <?php
 
-        if ( $fullmembers->have_posts() ) : ?>
-        <div class="w-full">
-          <h2 class="text-grey-darkest">Full members</h2>
-        </div>
-        
-        <?php while ( $fullmembers->have_posts() ) : $fullmembers->the_post(); ?>
+          $full = new WP_Query( array(
+            'post_type' => 'members',
+            'category_name' => 'full'
+          ) );
 
-        <div class="flex w-full lg:w-1/3 p-4">
-          <div class="flex flex-wrap flex-1 items-center card shadow p-2">
-            <div class="w-1/3">
+          if ( $full->have_posts() ) : while ( $full->have_posts() ) : $full->the_post();
+
+          $link = get_post_meta( get_the_ID(), 'member_details_site-url', true );
+          
+          ?>
+          <a href="<?php echo $link ?>" target="_blank" class="flex w-full lg:w-1/4 p-4">
+            <div class="flex flex-wrap flex-1 items-center card hover:shadow p-2">
               <?php if ( has_post_thumbnail() ) { ?>
-                <img src="<?php echo the_post_thumbnail_url() ?>" alt="">
+                <img src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
               <?php } ?>
+              <div class="w-full px-2 text-center">
+                <h4 class="pb-1 text-black"><?php the_title(); ?></h4>
+                <span class="text-xs text-grey"><?php the_content(); ?></span>
+              </div>
             </div>
-            <div class="w-2/3 px-2">
-              <h4 class="pb-1"><?php the_title(); ?></h4>
-              <span class="text-xs"><?php the_content(); ?></span>
-            </div>
-          </div>
-        </div>
+          </a>
 
-        <?php endwhile; endif; wp_reset_postdata();?>
+          <?php endwhile; endif; wp_reset_postdata();?>
+        </div>
       </div>
 
-      <hr class="w-full lg:w-2/3 border-b border-grey">
+      <div class="tab-view hidden w-full" data-tab-view="affiliates">
+        <div class="flex flex-wrap w-full lg:w-2/3 m-auto p-6">
+          <?php
 
-      <!-- Affiliate members -->
-      <div class="flex flex-wrap w-full lg:w-2/3 m-auto p-6">
-      <?php
+          $affiliates = new WP_Query( array(
+            'post_type' => 'members',
+            'category_name' => 'affiliate'
+          ) );
 
-        $affiliates = new WP_Query( array(
-          'post_type' => 'members',
-          'category_name' => 'affiliate'
-        ) );
-
-        if ( $affiliates->have_posts() ) : ?>
-        <div class="w-full">
-          <h2 class="text-grey-darkest">Affiliates</h2>
-        </div>
-        
-        <?php while ( $affiliates->have_posts() ) : $affiliates->the_post(); ?>
-
-        <div class="flex w-full lg:w-1/3 p-4">
-          <div class="flex flex-wrap flex-1 items-center card shadow p-2">
-            <div class="w-1/3">
+          if ( $affiliates->have_posts() ) : while ( $affiliates->have_posts() ) : $affiliates->the_post();
+          
+          $link = get_post_meta( get_the_ID(), 'member_details_site-url', true );
+          
+          ?>
+          <a href="<?php echo $link ?>" target="_blank" class="flex w-full lg:w-1/4 p-4">
+            <div class="flex flex-wrap flex-1 items-center card hover:shadow p-2">
               <?php if ( has_post_thumbnail() ) { ?>
-                <img src="<?php echo the_post_thumbnail_url() ?>" alt="">
+                <img src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
               <?php } ?>
+              <div class="w-full px-2 text-center">
+                <h4 class="pb-1 text-black"><?php the_title(); ?></h4>
+                <span class="text-xs text-grey"><?php the_content(); ?></span>
+              </div>
             </div>
-            <div class="w-2/3 px-2">
-              <h4 class="pb-1"><?php the_title(); ?></h4>
-              <span class="text-xs"><?php the_content(); ?></span>
-            </div>
-          </div>
-        </div>
+          </a>
 
-        <?php endwhile; endif; wp_reset_postdata();?>
+          <?php endwhile; endif; wp_reset_postdata();?>
+        </div>
       </div>
 
+      <div class="tab-view hidden w-full" data-tab-view="former-members">
+        <div class="flex flex-wrap w-full lg:w-2/3 m-auto p-6">
+          <?php
+
+          $former = new WP_Query( array(
+            'post_type' => 'members',
+            'category_name' => 'former'
+          ) );
+
+          if ( $former->have_posts() ) : while ( $former->have_posts() ) : $former->the_post();
+
+          $link = get_post_meta( get_the_ID(), 'member_details_site-url', true );
+          
+          ?>
+          <a href="<?php echo $link ?>" target="_blank" class="flex w-full lg:w-1/4 p-4">
+            <div class="flex flex-wrap flex-1 items-center card hover:shadow p-2">
+              <?php if ( has_post_thumbnail() ) { ?>
+                <img src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+              <?php } ?>
+              <div class="w-full px-2 text-center">
+                <h4 class="pb-1 text-black"><?php the_title(); ?></h4>
+                <span class="text-xs text-grey"><?php the_content(); ?></span>
+              </div>
+            </div>
+          </a>
+
+          <?php endwhile; endif; wp_reset_postdata();?>
+        </div>
+      </div>
+      
     </article>
   </section>
 </main>

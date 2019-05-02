@@ -26,15 +26,17 @@ $(document).ready(function() {
 
     var tabView = $(this).attr('data-tab-name')
 
+    var scrollPos = $(window).scrollTop()
+
     $('.tab-view, .tab-nav a').removeClass('active hidden')
-    $('.tab-view').slideUp()
+    $('.tab-view').hide()
     $(
       '.tab-view[data-tab-view="' +
         tabView +
         '"], .tab-nav a[data-tab-name="' +
         tabView +
         '"]'
-    ).slideDown()
+    ).show()
     $(
       '.tab-view[data-tab-view="' +
         tabView +
@@ -42,5 +44,6 @@ $(document).ready(function() {
         tabView +
         '"]'
     ).addClass('active')
+    $(window).scrollTop(scrollPos)
   })
 })

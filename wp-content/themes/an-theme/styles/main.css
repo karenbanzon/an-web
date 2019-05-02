@@ -68,7 +68,6 @@ a {
 }
 
 .page-hero .overlay {
-  background-color: #ffffff;
   display: block;
   position: absolute;
   top: 0px;
@@ -157,7 +156,8 @@ a {
 
 /** Round image styles **/
 .round-image {
-  @apply w-full flex-1 rounded-full bg-cover;
+  @apply w-full rounded-full bg-cover;
+  flex: 1 0 auto;
 }
 
 .round-image:before {
