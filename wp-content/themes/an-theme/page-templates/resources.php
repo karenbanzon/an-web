@@ -22,106 +22,48 @@
 
       <hr class="w-full lg:w-2/3 border-b border-grey">
 
-      <!-- Regular events -->
-      <div class="flex flex-wrap w-full lg:w-2/3 m-auto p-6">
-      <?php
-        $webinar = get_category_by_slug( 'webinar' );
-        $webinar_id = $webinar->term_id;
-
-        $workshop = get_category_by_slug( 'workshop' );
-        $workshop_id = $workshop->term_id;
-
-        $regular = new WP_Query( array(
-          'post_type' => 'events',
-          'category_name' => 'events',
-          'category__not_in' => array($webinar_id, $workshop_id)
-        ) );
-
-        if ( $regular->have_posts() ) : ?>
-        <div class="w-full">
-          <h2 class="text-grey-darkest">Events</h2>
-        </div>
-        
-        <?php while ( $regular->have_posts() ) : $regular->the_post(); ?>
-
-        <div class="w-full lg:w-1/3 p-6">
-          <h4><?php the_title(); ?></h4>
-        </div>
-
-        <?php endwhile; ?>
-
-        <div class="w-full text-center mt-6">
-          <a href="<?php echo get_home_url() ?>/events-all/" class="bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold py-2 px-4 mr-2 rounded">
-            View all events &rarr;
-          </a>
-        </div>
-        
-        <?php endif; wp_reset_postdata();?>
-      </div>
-
-      <hr class="w-full lg:w-2/3 border-b border-grey">
-        
-      <!-- Webinars -->
-      <div class="flex flex-wrap w-full lg:w-2/3 m-auto p-6">
-      <?php
-        $regular = new WP_Query( array(
-          'post_type' => 'events',
-          'category_name' => 'webinar'
-        ) );
-
-        if ( $regular->have_posts() ) : ?>
-        <div class="w-full">
-          <h2 class="text-grey-darkest">Webinars</h2>
-        </div>
-        
-        <?php while ( $regular->have_posts() ) : $regular->the_post(); ?>
-
-        <div class="w-full lg:w-1/3 p-6">
-          <h4><?php the_title(); ?></h4>
-        </div>
-
-        <?php endwhile; ?>
-
-        <div class="w-full text-center mt-6">
-          <a href="<?php echo get_home_url() ?>/webinars/" class="bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold py-2 px-4 mr-2 rounded">
-            View all webinars &rarr;
-          </a>
-        </div>
-        
-        <?php endif; wp_reset_postdata();?>
-      </div>
-
-      <hr class="w-full lg:w-2/3 border-b border-grey">
-
-      <!-- Workshops -->
-      <div class="flex flex-wrap w-full lg:w-2/3 m-auto p-6">
+      <!-- Resources -->
+      <div class="flex flex-wrap w-full lg:w-2/3 m-auto">
       <?php
 
-        $regular = new WP_Query( array(
-          'post_type' => 'events',
-          'category_name' => 'workshop'
+        $resources = new WP_Query( array(
+          'post_type' => 'resources',
+          'posts_per_page' => -1
         ) );
 
-        if ( $regular->have_posts() ) : ?>
-        <div class="w-full">
-          <h2 class="text-grey-darkest">Workshops</h2>
-        </div>
-        
-        <?php while ( $regular->have_posts() ) : $regular->the_post(); ?>
+        if ( $resources->have_posts() ) : while ( $resources->have_posts() ) : $resources->the_post();
 
-        <div class="w-full lg:w-1/3 p-6">
-          <h4><?php the_title(); ?></h4>
-        </div>
+        $topics = get_category_by_slug( 'topics' );
 
-        <?php endwhile; ?>
+        $post_categories = wp_get_post_categories( get_the_ID(), array( 'exclude' => [$topics->term_id] ) );
+        $cats = array();
+            
+        foreach($post_categories as $c){
+            $cat = get_category( $c );
+            $cats[] = array( 'name' => $cat->name, 'slug' => $cat->slug );
+        }
 
-        <div class="w-full text-center mt-6">
-          <a href="<?php echo get_home_url() ?>/workshops/" class="bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold py-2 px-4 mr-2 rounded">
-            View all workshops &rarr;
-          </a>
-        </div>
-        
-        <?php endif; wp_reset_postdata();?>
+        ?>
+
+        <a href="<?php the_permalink() ?>"" class="w-full flex flex-wrap items-center hover:shadow p-6">
+          <div class="w-full lg:w-1/3">
+            <?php if ( has_post_thumbnail() ) { ?>
+              <img src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+            <?php } ?>
+          </div>
+          <div class="w-full lg:w-2/3 p-4">
+            <h2 class="text-black hover:text-anblue"><?php the_title(); ?></h2>
+            <p class="text-grey text-sm mt-4"><?php echo esc_html( get_the_excerpt() ); ?></p>
+            <span class="text-grey text-sm">Tags:</span>
+            <div>
+              <?php foreach($cats as $cat) { ?>
+                <span class="rounded inline-block bg-grey-light text-grey-dark text-xs p-1 my-1"><?php echo $cat['name']; ?></span>
+              <?php } ?>
+            </div>
+          </div>
+        </a>
+
+        <?php endwhile; endif; wp_reset_postdata();?>
       </div>
     </article>
   </section>
