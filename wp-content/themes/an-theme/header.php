@@ -39,7 +39,7 @@
           <a href="<?php echo get_home_url() ?>" id="site-title" class="flex font-semibold text-xl text-grey-darkest tracking-tight pl-4 pr-6">Accountable Now</a>
           <nav id="main-nav">
             <ul class="list-reset">
-              <li class="nav-item group inline-block px-2 py-4">
+              <li class="nav-item group inline-block px-1 py-4">
                 <a href="<?php echo get_home_url() ?>/about-us/" class="block w-full lg:w-auto lg:flex pt-6 ml-3 lg:pt-1 lg:pl-6 text-grey hover:text-anblue group-hover:text-anblue">About us &darr;</a>
                 <ul class="nav-dropdown list-reset ml-8 p-2 z-10 bg-white shadow hidden">
                   <!-- <a href="<?php echo get_home_url() ?>/about-us/dynamic-accountability/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Dynamic Accountability</a> -->
@@ -50,7 +50,7 @@
                   <!-- <a href="<?php echo get_home_url() ?>/about-us/annual-general-meeting/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Annual general meeting</a> -->
                 </ul>
               </li>
-              <li class="nav-item group inline-block px-2 py-4">
+              <li class="nav-item group inline-block px-1 py-4">
                 <a href="<?php echo get_home_url() ?>/our-work/" class="block w-full lg:w-auto lg:flex pt-6 ml-3 lg:pt-1 lg:pl-6 text-grey hover:text-anblue group-hover:text-anblue">Our work &darr;</a>
                 <ul class="nav-dropdown list-reset ml-8 p-2 z-10 bg-white shadow hidden">
                   <a href="<?php echo get_home_url() ?>/our-work/our-approach-to-accountability/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Our approach to accountability</a>
@@ -60,7 +60,7 @@
                   <a href="<?php echo get_home_url() ?>/our-work/projects-and-partnerships/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Projects & partnerships</a>
                 </ul>
               </li>
-              <li class="nav-item group inline-block px-2 py-4">
+              <li class="nav-item group inline-block px-1 py-4">
                 <a href="<?php echo get_home_url() ?>/our-accountability/" class="block w-full lg:w-auto lg:flex pt-6 ml-3 lg:pt-1 lg:pl-6 text-grey hover:text-anblue group-hover:text-anblue">Our accountability &darr;</a>
                 <ul class="nav-dropdown list-reset ml-8 p-2 z-10 bg-white shadow hidden">
                   <a href="<?php echo get_home_url() ?>/our-accountability/our-policies-and-finance/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Our policies &amp; finance</a>
@@ -68,7 +68,7 @@
                   <a href="<?php echo get_home_url() ?>/our-accountability/feedback-and-complaints/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Feedback & complaints</a>
                 </ul>
               </li>
-              <li class="nav-item group inline-block px-2 py-4">
+              <li class="nav-item group inline-block px-1 py-4">
                 <a href="<?php echo get_home_url() ?>/members-corner/" class="block w-full lg:w-auto lg:flex pt-6 ml-3 lg:pt-1 lg:pl-6 text-grey hover:text-anblue group-hover:text-anblue">Member's corner &darr;</a>
                 <ul class="nav-dropdown list-reset ml-8 p-2 z-10 bg-white shadow hidden">
                   <a href="<?php echo get_home_url() ?>/members-corner/webinars/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Webinars</a>
@@ -81,7 +81,7 @@
                   </a>
                 </ul>
               </li>
-              <li class="nav-item group inline-block px-2 py-4">
+              <li class="nav-item group inline-block px-1 py-4">
                 <a href="<?php echo get_home_url() ?>/latest/" class="block w-full lg:w-auto lg:flex pt-6 ml-3 lg:pt-1 lg:pl-6 text-grey hover:text-anblue group-hover:text-anblue">The latest</a>
               </li>
             </ul>
