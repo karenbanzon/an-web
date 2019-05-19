@@ -81,14 +81,14 @@
                   </a>
                 </ul>
               </li>
-              <li class="nav-item group inline-block px-1 py-4">
+              <!-- <li class="nav-item group inline-block px-1 py-4">
                 <a href="<?php echo get_home_url() ?>/latest/" class="block w-full lg:w-auto lg:flex pt-6 ml-3 lg:pt-1 lg:pl-6 text-grey hover:text-anblue group-hover:text-anblue">The latest</a>
-              </li>
+              </li> -->
             </ul>
           </nav>
         </div>
         <div class="text-right w-1/4 sm:w-1/4 md:w-1/4 hidden lg:block">
-          <a href="<?php echo get_home_url() ?>/feedback-and-complaints/" class="bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold py-2 px-4 mr-1 rounded">
+          <a href="<?php echo get_home_url() ?>/feedback-and-complaints/" class="bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold py-2 px-4 mr-2 rounded">
             Feedback &amp; complaints
           </a>
           <a href="<?php echo get_home_url() ?>/join-us/" class="bg-anblue border border-anblue hover:border-anblue-dark hover:bg-anblue-dark text-white font-semibold py-2 px-4 rounded">
