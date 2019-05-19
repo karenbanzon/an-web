@@ -1,4 +1,4 @@
-<?php /* Template Name: Full width page */ ?>
+<?php /* Template Name: Page - Full width */ ?>
 
 <?php get_header(); ?>
 <main id="content" class="page-content flex flex-wrap justify-center w-full">

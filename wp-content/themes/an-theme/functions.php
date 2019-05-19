@@ -117,6 +117,14 @@ return $count;
 
 add_post_type_support( 'page', 'excerpt' );
 
+/* Make editor wider */
+function custom_admin_css() {
+	echo '<style type="text/css">
+	.wp-block { max-width: 100%; }
+	</style>';
+	}
+add_action('admin_head', 'custom_admin_css');
+
 /**
  * Members Metadata
  */

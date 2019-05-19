@@ -1,3 +1,5 @@
+<?php /* Template Name: Page - Regular */ ?>
+
 <?php get_header(); ?>
 <main id="content" class="page-content flex flex-wrap justify-center w-full">
   <section class="flex w-full">
