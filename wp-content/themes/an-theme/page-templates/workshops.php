@@ -1,4 +1,4 @@
-<?php /* Template Name: Webinars */ ?>
+<?php /* Template Name: Workshops */ ?>
 
 <?php get_header(); ?>
 <main id="content" class="page-content flex flex-wrap justify-center w-full">
