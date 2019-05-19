@@ -8,28 +8,28 @@
       <?php if ( has_post_thumbnail() ) { ?>
       <header class="header page-hero p-6" style="background-image: url(<?php echo the_post_thumbnail_url(); ?>)">
         <div class="overlay bg-anblue"></div>
-        <div class="page-title"><h1 class="entry-title w-full lg:w-2/3 ml-auto mr-auto mt-4 mb-4 pt-6 pb-6 text-white"><?php the_title(); ?></h1></div>
+        <div class="page-title"><h1 class="entry-title w-full lg:w-3/4 ml-auto mr-auto mt-4 mb-4 pt-6 pb-6 text-white"><?php the_title(); ?></h1></div>
       </header>
       <?php } else { ?>
-      <header class="header w-full lg:w-2/3 m-auto p-6">
+      <header class="header w-full lg:w-3/4 m-auto p-6">
         <h1 class="entry-title pt-4 pb-4 text-grey-darkest"><?php the_title(); ?></h1>
       </header>
       <?php } ?>
-      <div class="w-full lg:w-2/3 m-auto p-6">
+      <div class="w-full lg:w-3/4 m-auto p-6">
         <?php the_content(); ?>
       </div>
       <?php endwhile; endif; ?>
 
-      <hr class="w-full lg:w-2/3 border-b border-grey">
+      <hr class="w-full lg:w-3/4 border-b border-grey">
 
-      <nav class="tab-nav flex flex-wrap w-full lg:w-2/3 m-auto">
+      <nav class="tab-nav flex flex-wrap w-full lg:w-3/4 m-auto">
         <a href="" class="w-1/3 active" data-tab-name="full-members">Full members</a>
         <a href="" class="w-1/3" data-tab-name="affiliates">Affiliates</a>
         <a href="" class="w-1/3" data-tab-name="former-members">Former members</a>
       </nav>
 
       <div class="tab-view active w-full" data-tab-view="full-members">
-        <div class="flex flex-wrap w-full lg:w-2/3 m-auto p-6">
+        <div class="flex flex-wrap w-full lg:w-3/4 m-auto p-6">
           <?php
 
           $full = new WP_Query( array(
@@ -58,7 +58,7 @@
       </div>
 
       <div class="tab-view hidden w-full" data-tab-view="affiliates">
-        <div class="flex flex-wrap w-full lg:w-2/3 m-auto p-6">
+        <div class="flex flex-wrap w-full lg:w-3/4 m-auto p-6">
           <?php
 
           $affiliates = new WP_Query( array(
@@ -87,7 +87,7 @@
       </div>
 
       <div class="tab-view hidden w-full" data-tab-view="former-members">
-        <div class="flex flex-wrap w-full lg:w-2/3 m-auto p-6">
+        <div class="flex flex-wrap w-full lg:w-3/4 m-auto p-6">
           <?php
 
           $former = new WP_Query( array(
