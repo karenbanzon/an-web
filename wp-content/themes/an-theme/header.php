@@ -34,7 +34,7 @@
   <div id="wrapper" class="hfeed">
     <header>
       <nav class="flex items-center justify-between flex-wrap bg-white border-b-4 border-anblue px-6 py-2">
-        <div id="branding" class="flex flex-wrap items-center w-3/4 sm:w-3/4 md:w-2/3">
+        <div id="branding" class="flex flex-wrap items-center w-3/4 sm:w-3/4 md:w-3/4">
           <a href="<?php echo get_home_url() ?>"><img id="logo" src="<?php echo get_template_directory_uri() ?>/assets/images/an-logo.svg"></a>
           <a href="<?php echo get_home_url() ?>" id="site-title" class="flex font-semibold text-xl text-grey-darkest tracking-tight pl-4 pr-6">Accountable Now</a>
           <nav id="main-nav">
@@ -87,15 +87,15 @@
             </ul>
           </nav>
         </div>
-        <div class="text-right w-1/4 sm:w-1/4 md:w-1/3 hidden lg:block">
-          <a href="<?php echo get_home_url() ?>/feedback-and-complaints/" class="bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold py-2 px-4 mr-2 rounded">
+        <div class="text-right w-1/4 sm:w-1/4 md:w-1/4 hidden lg:block">
+          <a href="<?php echo get_home_url() ?>/feedback-and-complaints/" class="bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold py-2 px-4 mr-1 rounded">
             Feedback &amp; complaints
           </a>
           <a href="<?php echo get_home_url() ?>/join-us/" class="bg-anblue border border-anblue hover:border-anblue-dark hover:bg-anblue-dark text-white font-semibold py-2 px-4 rounded">
             Join us
           </a>
         </div>
-        <div class="flex self-start w-1/4 sm:w-1/4 md:w-1/3 block lg:hidden">
+        <div class="flex self-start w-1/4 sm:w-1/4 md:w-1/4 block lg:hidden">
           <button class="flex ml-auto items-center px-3 py-2 border rounded text-anblue-lighter border-anblue-light hover:text-white hover:border-white">
             <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
           </button>
