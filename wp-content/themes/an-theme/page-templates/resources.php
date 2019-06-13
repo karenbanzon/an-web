@@ -25,34 +25,40 @@
       <!-- Resource filters -->
       <div class="flex flex-wrap w-full lg:w-3/4 m-auto p-6">
         <form action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="filter">
-          <div class="flex w-full pl-6 pr-6 justify-center">
-            <select name="member_cat" class="mr-2">
+          <div class="flex flex-wrap w-full">
+            <select name="member_cat" class="mr-2 mb-2 md:mb-0 self-center w-full md:w-auto h-8">
               <option value="" selected disabled>Select member organization</option>
               <option value="">All</option>
               <?php
                 $parentCategory = 'members';
                 $parentCategoryObject = get_category_by_slug($parentCategory); 
                 $parentCategoryId = $parentCategoryObject->term_id;
-                $terms = get_term_children( $parentCategoryId, 'category' );
+                $terms = get_terms( array(
+                  'taxonomy' => 'category',
+                  'child_of' => $parentCategoryId,
+                  'hide_empty' => false
+                ));
 
                 foreach ( $terms as $term ) {
-                    $item = get_term_by( 'id', $term, 'category' );
-                    echo '<option class="p-4" value="' . $item->term_id . '">' . $item->name . '</option>';
+                    echo '<option class="p-4" value="' . $term->term_id . '">' . $term->name . '</option>';
                 }
               ?>
             </select>
-            <select name="topic_cat" class="mr-2">
+            <select name="topic_cat" class="mr-2 mb-2 md:mb-0 self-center w-full md:w-auto h-8">
               <option value="" selected disabled>Select topic</option>
               <option value="">All</option>
               <?php
                 $parentCategory = 'topics';
                 $parentCategoryObject = get_category_by_slug($parentCategory); 
                 $parentCategoryId = $parentCategoryObject->term_id;
-                $terms = get_term_children( $parentCategoryId, 'category' );
+                $terms = get_terms( array(
+                  'taxonomy' => 'category',
+                  'child_of' => $parentCategoryId,
+                  'hide_empty' => false
+                ));
 
                 foreach ( $terms as $term ) {
-                    $item = get_term_by( 'id', $term, 'category' );
-                    echo '<option class="p-4" value="' . $item->term_id . '">' . $item->name . '</option>';
+                    echo '<option class="p-4" value="' . $term->term_id . '">' . $term->name . '</option>';
                 }
               ?>
             </select>

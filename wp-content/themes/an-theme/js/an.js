@@ -2,23 +2,36 @@ jQuery(document).ready(function() {
   $('#main-nav .nav-item').mouseenter(function() {
     $(this)
       .children('.nav-dropdown')
+      .stop()
       .slideDown()
   })
   $('#main-nav .nav-item').mouseleave(function() {
     $(this)
       .children('.nav-dropdown')
+      .stop()
       .slideUp()
   })
 
-  $('#menu-header-menu .menu-item').mouseenter(function() {
-    $(this)
-      .children('.sub-menu')
-      .slideDown()
+  $('#responsive-toggle').click(function() {
+    $('#responsive-nav')
+      .stop()
+      .slideToggle()
   })
-  $('#menu-header-menu .menu-item').mouseleave(function() {
+
+  $('#responsive-nav .nav-item .nav-dropdown-toggle').click(function(e) {
+    e.preventDefault()
+    
     $(this)
-      .children('.sub-menu')
-      .slideUp()
+      .parent()
+      .next('.nav-dropdown')
+      .stop()
+      .slideToggle()
+
+    if($(this).html() == '&darr;' || $(this).html() == '\u2193') {
+      $(this).html('\u2191')
+    } else {
+      $(this).html('\u2193')
+    }
   })
 
   $('.tab-nav a').click(function(e) {
