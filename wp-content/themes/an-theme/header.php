@@ -104,7 +104,7 @@
           <nav id="responsive-nav" class="hidden w-full">
             <ul class="list-reset">
               <li class="nav-item group block px-2">
-                <a href="<?php echo get_home_url() ?>/about-us/" class="flex justify-between block w-full lg:w-auto lg:flex px-2 py-2 text-grey-darker hover:text-anblue group-hover:text-anblue"><strong>About us</strong><span class="nav-dropdown-toggle text-anblue">&darr;</span></a>
+                <a href="<?php echo get_home_url() ?>/about-us/" class="flex justify-between block w-full lg:w-auto lg:flex px-2 py-2 text-grey-darker hover:text-anblue group-hover:text-anblue"><strong>About us</strong><span class="nav-dropdown-toggle text-anblue px-2">&darr;</span></a>
                 <ul class="nav-dropdown list-reset ml-2 bg-white text-sm hidden">
                   <!-- <a href="<?php echo get_home_url() ?>/about-us/dynamic-accountability/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Dynamic Accountability</a> -->
                   <a href="<?php echo get_home_url() ?>/about-us/our-strategy/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Our strategy</a>
@@ -115,7 +115,7 @@
                 </ul>
               </li>
               <li class="nav-item group block px-2">
-                <a href="<?php echo get_home_url() ?>/our-work/" class="flex justify-between block w-full lg:w-auto lg:flex px-2 py-2 text-grey-darker hover:text-anblue group-hover:text-anblue"><strong>Our work</strong><span class="nav-dropdown-toggle text-anblue">&darr;</span></a>
+                <a href="<?php echo get_home_url() ?>/our-work/" class="flex justify-between block w-full lg:w-auto lg:flex px-2 py-2 text-grey-darker hover:text-anblue group-hover:text-anblue"><strong>Our work</strong><span class="nav-dropdown-toggle text-anblue px-2">&darr;</span></a>
                 <ul class="nav-dropdown list-reset ml-2 bg-white text-sm hidden">
                   <a href="<?php echo get_home_url() ?>/our-work/our-approach-to-accountability/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Our approach to accountability</a>
                   <a href="<?php echo get_home_url() ?>/our-work/12-accountability-commitments/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">12 accountability commitments</a>
@@ -125,7 +125,7 @@
                 </ul>
               </li>
               <li class="nav-item group block px-2">
-                <a href="<?php echo get_home_url() ?>/our-accountability/" class="flex justify-between block w-full lg:w-auto lg:flex px-2 py-2 text-grey-darker hover:text-anblue group-hover:text-anblue"><strong>Our accountability</strong><span class="nav-dropdown-toggle text-anblue">&darr;</span></a>
+                <a href="<?php echo get_home_url() ?>/our-accountability/" class="flex justify-between block w-full lg:w-auto lg:flex px-2 py-2 text-grey-darker hover:text-anblue group-hover:text-anblue"><strong>Our accountability</strong><span class="nav-dropdown-toggle text-anblue px-2">&darr;</span></a>
                 <ul class="nav-dropdown list-reset ml-2 bg-white text-sm hidden">
                   <a href="<?php echo get_home_url() ?>/our-accountability/our-policies-and-finance/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Our policies &amp; finance</a>
                   <a href="<?php echo get_home_url() ?>/our-accountability/audits-finances-reports/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Audits, finances &amp; reports</a>
@@ -133,7 +133,7 @@
                 </ul>
               </li>
               <li class="nav-item group block px-2">
-                <a href="<?php echo get_home_url() ?>/members-corner/" class="flex justify-between block w-full lg:w-auto lg:flex px-2 py-2 text-grey-darker hover:text-anblue group-hover:text-anblue"><strong>Member's corner</strong><span class="nav-dropdown-toggle text-anblue">&darr;</span></a>
+                <a href="<?php echo get_home_url() ?>/members-corner/" class="flex justify-between block w-full lg:w-auto lg:flex px-2 py-2 text-grey-darker hover:text-anblue group-hover:text-anblue"><strong>Member's corner</strong><span class="nav-dropdown-toggle text-anblue px-2">&darr;</span></a>
                 <ul class="nav-dropdown list-reset ml-2 bg-white text-sm hidden">
                   <a href="<?php echo get_home_url() ?>/members-corner/webinars/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Webinars</a>
                   <a href="<?php echo get_home_url() ?>/members-corner/workshops/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Workshops</a>

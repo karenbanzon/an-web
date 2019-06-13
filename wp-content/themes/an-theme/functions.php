@@ -709,7 +709,7 @@ function eventposttype_get_the_event_date() {
 
 // Add webinar filter
 add_action('wp_ajax_filter_webinar', 'an_filter_webinar'); // wp_ajax_{ACTION HERE} 
-add_action('wp_ajax_nopriv_myfilter', 'an_filter_webinar');
+add_action('wp_ajax_nopriv_filter_webinar', 'an_filter_webinar');
  
 function an_filter_webinar(){
 	$primaryCategorySlug = 'webinar';
@@ -790,7 +790,7 @@ function an_filter_webinar(){
 
 // Add resource filter
 add_action('wp_ajax_filter_resource', 'an_filter_resource'); // wp_ajax_{ACTION HERE} 
-add_action('wp_ajax_nopriv_myfilter', 'an_filter_resource');
+add_action('wp_ajax_nopriv_filter_resource', 'an_filter_resource');
  
 function an_filter_resource(){
 	$memberOrgCategoryId = $_POST['member_cat'];
