@@ -3,6 +3,7 @@ add_action( 'after_setup_theme', 'blankslate_setup' );
 function blankslate_setup() {
 load_theme_textdomain( 'blankslate', get_template_directory() . '/languages' );
 add_theme_support( 'title-tag' );
+add_theme_support( 'custom-logo' );
 add_theme_support( 'automatic-feed-links' );
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'html5', array( 'search-form' ) );
@@ -703,4 +704,205 @@ function eventposttype_get_the_event_date() {
 	$eventdate .= ' at ' . get_post_meta($post->ID, '_hour', true);
 	$eventdate .= ':' . get_post_meta($post->ID, '_minute', true);
 	echo $eventdate;
+}
+
+
+// Add webinar filter
+add_action('wp_ajax_filter_webinar', 'an_filter_webinar'); // wp_ajax_{ACTION HERE} 
+add_action('wp_ajax_nopriv_myfilter', 'an_filter_webinar');
+ 
+function an_filter_webinar(){
+	$primaryCategorySlug = 'webinar';
+	$primaryCategoryObj = get_category_by_slug($primaryCategorySlug);
+	$primaryCategoryId = $primaryCategoryObj->term_id;
+
+	$memberOrgCategoryId = $_POST['member_cat'];
+	$topicCategoryId = $_POST['topic_cat'];
+ 
+	// if both member org and topic are set
+	if( isset( $_POST['member_cat'] ) && $_POST['member_cat'] != "" && isset( $_POST['topic_cat'] ) && $_POST['topic_cat'] != ""  ) {
+		$args = array(
+			'orderby' => 'date', // we will sort posts by date
+			'order'	=> $_POST['date'], // ASC or DESC
+			'post_type' => 'events',
+			'category__and' => array($_POST['member_cat'], $_POST['topic_cat'], $primaryCategoryId),
+		);
+	} else if ( (isset( $_POST['member_cat'] ) && $_POST['member_cat'] != "") || (isset( $_POST['member_cat'] ) && $_POST['member_cat'] != "" && isset( $_POST['topic_cat'] ) && $_POST['topic_cat'] = "") ) {
+		// if only member org is set
+		$args = array(
+			'orderby' => 'date', // we will sort posts by date
+			'order'	=> $_POST['date'], // ASC or DESC
+			'post_type' => 'events',
+			'category__and' => array($_POST['member_cat'], $primaryCategoryId),
+		);
+	} else if ( (isset( $_POST['topic_cat'] ) && $_POST['topic_cat']) || (isset( $_POST['member_cat'] ) && $_POST['member_cat'] = "" && isset( $_POST['topic_cat'] ) && $_POST['topic_cat'] != "") ) {
+		// if only topic is set
+		$args = array(
+			'orderby' => 'date', // we will sort posts by date
+			'order'	=> $_POST['date'], // ASC or DESC
+			'post_type' => 'events',
+			'category__and' => array($_POST['topic_cat'], $primaryCategoryId),
+		);
+	} else {
+		$args = array(
+			'orderby' => 'date', // we will sort posts by date
+			'order'	=> $_POST['date'], // ASC or DESC
+			'post_type' => 'events',
+			'cat' => $primaryCategoryId
+		);
+	}
+ 
+	$query = new WP_Query( $args );
+ 
+	if( $query->have_posts() ) :
+		while( $query->have_posts() ): $query->the_post();
+			echo '<div class="w-full lg:w-1/3 p-6 hover:shadow">';
+			echo '<a href="';
+			echo the_permalink();
+			echo '">';
+			if ( has_post_thumbnail() ) { 
+				echo '<div class="bg-cover bg-center mb-2" style="background-image:url(';
+				echo the_post_thumbnail_url();
+				echo '); height: 300px;">';
+				echo '</div>';
+			}
+			echo '<h4 class="text-black">';
+			echo the_title();
+			echo '</h4>';
+			
+			$post_meta = get_post_meta( get_the_ID() );
+			echo '<small class="text-grey">';
+			echo $post_meta['_start_day'][0] . '.' . $post_meta['_start_month'][0] . '.' . $post_meta['_start_year'][0];
+			echo '</small>';
+			echo '<br>';
+			echo '<small class="text-grey">';
+			echo $post_meta['_event_location'][0];
+			echo '</small></a></div>';
+		endwhile;
+		wp_reset_postdata();
+	else :
+		include('not-found.php');
+	endif;
+ 
+	die();
+}
+
+
+// Add resource filter
+add_action('wp_ajax_filter_resource', 'an_filter_resource'); // wp_ajax_{ACTION HERE} 
+add_action('wp_ajax_nopriv_myfilter', 'an_filter_resource');
+ 
+function an_filter_resource(){
+	$memberOrgCategoryId = $_POST['member_cat'];
+	$topicCategoryId = $_POST['topic_cat'];
+
+	// if both member org and topic are set
+	if( isset( $_POST['member_cat'] ) && $_POST['member_cat'] != "" && isset( $_POST['topic_cat'] ) && $_POST['topic_cat'] != ""  ) {
+		$args = array(
+			'orderby' => 'date', // we will sort posts by date
+			'order'	=> $_POST['date'], // ASC or DESC
+			'post_type' => 'resources',
+			'category__and' => array($_POST['member_cat'], $_POST['topic_cat']),
+		);
+	} else if ( (isset( $_POST['member_cat'] ) && $_POST['member_cat'] != "") || (isset( $_POST['member_cat'] ) && $_POST['member_cat'] != "" && isset( $_POST['topic_cat'] ) && $_POST['topic_cat'] = "") ) {
+		// if only member org is set
+		$args = array(
+			'orderby' => 'date', // we will sort posts by date
+			'order'	=> $_POST['date'], // ASC or DESC
+			'post_type' => 'resources',
+			'category__and' => array($_POST['member_cat']),
+		);
+	} else if ( (isset( $_POST['topic_cat'] ) && $_POST['topic_cat']) || (isset( $_POST['member_cat'] ) && $_POST['member_cat'] = "" && isset( $_POST['topic_cat'] ) && $_POST['topic_cat'] != "") ) {
+		// if only topic is set
+		$args = array(
+			'orderby' => 'date', // we will sort posts by date
+			'order'	=> $_POST['date'], // ASC or DESC
+			'post_type' => 'resources',
+			'category__and' => array($_POST['topic_cat']),
+		);
+	} else {
+		$args = array(
+			'orderby' => 'date', // we will sort posts by date
+			'order'	=> $_POST['date'], // ASC or DESC
+			'post_type' => 'resources'
+		);
+	}
+ 
+	$query = new WP_Query( $args );
+ 
+	if( $query->have_posts() ) :
+		while( $query->have_posts() ): $query->the_post();
+
+			$topics = get_category_by_slug( 'topics' );
+			$members = get_category_by_slug( 'members' );
+
+			$post_topics = wp_get_post_categories(
+				get_the_ID(),
+				array(
+					'exclude' => [$topics->term_id],
+					'exclude_tree' => [$members->term_id]
+				)
+			);
+			$cats = array();
+					
+			foreach($post_topics as $c){
+					$cat = get_category( $c );
+					$cats[] = array( 'name' => $cat->name, 'slug' => $cat->slug );
+			}
+
+			$post_members = wp_get_post_categories(
+				get_the_ID(),
+				array(
+					'exclude' => [$members->term_id],
+					'exclude_tree' => [$topics->term_id]
+				)
+			);
+			$mems = array();
+					
+			foreach($post_members as $m){
+					$mem = get_category( $m );
+					$mems[] = array( 'name' => $mem->name, 'slug' => $mem->slug );
+			}
+
+			echo '<a href="';
+			echo the_permalink();
+			echo '" class="w-full flex flex-wrap items-center hover:shadow p-6">';
+			echo '<div class="w-full lg:w-1/3">';
+			if ( has_post_thumbnail() ) {
+				echo '<img src="';
+				echo the_post_thumbnail_url();
+				echo '" alt="';
+				echo the_title();
+				echo '">';
+			}
+			echo '</div>';
+			echo '<div class="w-full lg:w-2/3 p-4">';
+			echo '<h2 class="text-black hover:text-anblue">';
+			echo the_title();
+			echo '</h2>';
+			if ($mems[0]['name']) {
+				echo '<span class="inline-block text-grey text-sm py-2">';
+				echo $mems[0]['name'];
+				echo '</span>';
+			}
+			echo '<p class="text-grey text-sm mt-4">';
+			echo esc_html( get_the_excerpt() );
+			echo '</p>';
+			echo '<span class="text-grey text-sm">Topics:</span>';
+			echo '<div>';
+			foreach($cats as $cat) {
+				echo '<span class="rounded inline-block bg-grey-light text-grey-dark text-xs p-1 my-1">';
+				echo $cat['name'];
+				echo '</span> ';
+			}
+			echo '</div>';
+			echo '</div>';
+			echo '</a>';
+		endwhile;
+		wp_reset_postdata();
+	else :
+		include('not-found.php');
+	endif;
+ 
+	die();
 }

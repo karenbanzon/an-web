@@ -22,8 +22,51 @@
 
       <hr class="w-full border-b border-grey">
         
-      <!-- Webinars -->
+      <!-- Webinar filters -->
       <div class="flex flex-wrap w-full m-auto p-6">
+        <form action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="filter">
+          <div class="flex w-full pl-6 pr-6 justify-center">
+            <select name="member_cat" class="mr-2">
+              <option value="" selected disabled>Select member organization</option>
+              <option value="">All</option>
+              <?php
+                $parentCategory = 'members';
+                $parentCategoryObject = get_category_by_slug($parentCategory); 
+                $parentCategoryId = $parentCategoryObject->term_id;
+                $terms = get_term_children( $parentCategoryId, 'category' );
+
+                foreach ( $terms as $term ) {
+                    $item = get_term_by( 'id', $term, 'category' );
+                    echo '<option class="p-4" value="' . $item->term_id . '">' . $item->name . '</option>';
+                }
+              ?>
+            </select>
+            <select name="topic_cat" class="mr-2">
+              <option value="" selected disabled>Select topic</option>
+              <option value="">All</option>
+              <?php
+                $parentCategory = 'topics';
+                $parentCategoryObject = get_category_by_slug($parentCategory); 
+                $parentCategoryId = $parentCategoryObject->term_id;
+                $terms = get_term_children( $parentCategoryId, 'category' );
+
+                foreach ( $terms as $term ) {
+                    $item = get_term_by( 'id', $term, 'category' );
+                    echo '<option class="p-4" value="' . $item->term_id . '">' . $item->name . '</option>';
+                }
+              ?>
+            </select>
+            <button id="filterButton" class="bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold py-2 px-4 mr-2 rounded">
+              Filter results
+            </button>
+            <input type="hidden" name="action" value="filter_webinar">
+          </div>
+        </form>
+      </div>
+      
+      <!-- Webinar items -->
+      <div class="flex flex-wrap w-full m-auto p-6" id="response">
+      
       <?php
         $regular = new WP_Query( array(
           'post_type' => 'events',
@@ -42,7 +85,6 @@
             <?php } ?>
             <h4 class="text-black"><?php the_title(); ?></h4>
             <?php $post_meta = get_post_meta( get_the_ID() ); ?>
-            <?php echo '<script>console.log(' . json_encode($post_meta) . ')</script>' ?>
             <small class="text-grey"><?php echo $post_meta['_start_day'][0] . '.' . $post_meta['_start_month'][0] . '.' . $post_meta['_start_year'][0] ?></small>
             <br>
             <small class="text-grey"><?php echo $post_meta['_event_location'][0] ?></small>

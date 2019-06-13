@@ -21,8 +21,7 @@
       <?php endwhile; endif; ?>
 
       <hr class="w-full border-b border-grey">
-        
-      <!-- Webinars -->
+
       <div class="flex flex-wrap w-full m-auto p-6">
       <?php
         $regular = new WP_Query( array(
