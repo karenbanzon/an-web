@@ -7,7 +7,6 @@ add_theme_support( 'custom-logo' );
 add_theme_support( 'automatic-feed-links' );
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'html5', array( 'search-form' ) );
-
 global $content_width;
 if ( ! isset( $content_width ) ) { $content_width = 1920; }
 register_nav_menus( array( 'main-menu' => esc_html__( 'Main Menu', 'blankslate' ) ) );
@@ -118,6 +117,7 @@ return $count;
 }
 
 add_post_type_support( 'page', 'excerpt' );
+add_filter( 'use_default_gallery_style', '__return_false' );
 
 /* Make editor wider */
 function custom_admin_css() {
