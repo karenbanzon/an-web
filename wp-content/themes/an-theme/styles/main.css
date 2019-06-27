@@ -166,6 +166,15 @@ a {
   padding-top: 100%; /* ratio of 1:1*/
 }
 
+.nav-previous a, .nav-next a {
+  @apply text-anblue;
+  @apply no-underline;
+}
+
+.nav-previous a:hover, .nav-next a:hover {
+  @apply text-anblue-darker
+}
+
 /* #menu-header-menu {
   @apply list-reset;
 }

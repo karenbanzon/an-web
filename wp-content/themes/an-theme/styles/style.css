@@ -712,6 +712,17 @@ a {
   padding-top: 100%; /* ratio of 1:1*/
 }
 
+.nav-previous a,
+.nav-next a {
+  color: #05b4be;
+  text-decoration: none;
+}
+
+.nav-previous a:hover,
+.nav-next a:hover {
+  color: #095f6d;
+}
+
 /* #menu-header-menu {
   @apply list-reset;
 }
