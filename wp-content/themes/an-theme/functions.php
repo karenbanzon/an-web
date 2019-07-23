@@ -788,6 +788,86 @@ function an_filter_webinar(){
 	die();
 }
 
+// Add workshop filter
+add_action('wp_ajax_filter_workshop', 'an_filter_workshop'); // wp_ajax_{ACTION HERE} 
+add_action('wp_ajax_nopriv_filter_workshop', 'an_filter_workshop');
+ 
+function an_filter_workshop(){
+	$primaryCategorySlug = 'workshop';
+	$primaryCategoryObj = get_category_by_slug($primaryCategorySlug);
+	$primaryCategoryId = $primaryCategoryObj->term_id;
+
+	$memberOrgCategoryId = $_POST['member_cat'];
+	$topicCategoryId = $_POST['topic_cat'];
+ 
+	// if both member org and topic are set
+	if( isset( $_POST['member_cat'] ) && $_POST['member_cat'] != "" && isset( $_POST['topic_cat'] ) && $_POST['topic_cat'] != ""  ) {
+		$args = array(
+			'orderby' => 'date', // we will sort posts by date
+			'order'	=> $_POST['date'], // ASC or DESC
+			'post_type' => 'events',
+			'category__and' => array($_POST['member_cat'], $_POST['topic_cat'], $primaryCategoryId),
+		);
+	} else if ( (isset( $_POST['member_cat'] ) && $_POST['member_cat'] != "") || (isset( $_POST['member_cat'] ) && $_POST['member_cat'] != "" && isset( $_POST['topic_cat'] ) && $_POST['topic_cat'] = "") ) {
+		// if only member org is set
+		$args = array(
+			'orderby' => 'date', // we will sort posts by date
+			'order'	=> $_POST['date'], // ASC or DESC
+			'post_type' => 'events',
+			'category__and' => array($_POST['member_cat'], $primaryCategoryId),
+		);
+	} else if ( (isset( $_POST['topic_cat'] ) && $_POST['topic_cat']) || (isset( $_POST['member_cat'] ) && $_POST['member_cat'] = "" && isset( $_POST['topic_cat'] ) && $_POST['topic_cat'] != "") ) {
+		// if only topic is set
+		$args = array(
+			'orderby' => 'date', // we will sort posts by date
+			'order'	=> $_POST['date'], // ASC or DESC
+			'post_type' => 'events',
+			'category__and' => array($_POST['topic_cat'], $primaryCategoryId),
+		);
+	} else {
+		$args = array(
+			'orderby' => 'date', // we will sort posts by date
+			'order'	=> $_POST['date'], // ASC or DESC
+			'post_type' => 'events',
+			'cat' => $primaryCategoryId
+		);
+	}
+ 
+	$query = new WP_Query( $args );
+ 
+	if( $query->have_posts() ) :
+		while( $query->have_posts() ): $query->the_post();
+			echo '<div class="w-full lg:w-1/3 p-6 hover:shadow">';
+			echo '<a href="';
+			echo the_permalink();
+			echo '">';
+			if ( has_post_thumbnail() ) { 
+				echo '<div class="bg-cover bg-center mb-2" style="background-image:url(';
+				echo the_post_thumbnail_url();
+				echo '); height: 300px;">';
+				echo '</div>';
+			}
+			echo '<h4 class="text-black">';
+			echo the_title();
+			echo '</h4>';
+			
+			$post_meta = get_post_meta( get_the_ID() );
+			echo '<small class="text-grey">';
+			echo $post_meta['_start_day'][0] . '.' . $post_meta['_start_month'][0] . '.' . $post_meta['_start_year'][0];
+			echo '</small>';
+			echo '<br>';
+			echo '<small class="text-grey">';
+			echo $post_meta['_event_location'][0];
+			echo '</small></a></div>';
+		endwhile;
+		wp_reset_postdata();
+	else :
+		include('not-found.php');
+	endif;
+ 
+	die();
+}
+
 
 // Add resource filter
 add_action('wp_ajax_filter_resource', 'an_filter_resource'); // wp_ajax_{ACTION HERE} 

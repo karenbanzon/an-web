@@ -22,7 +22,56 @@
 
       <hr class="w-full border-b border-grey">
 
+      <!-- Workshop filters -->
       <div class="flex flex-wrap w-full m-auto p-6">
+        <form action="<?php echo site_url() ?>/wp-admin/admin-ajax.php" method="POST" id="filter">
+          <div class="flex flex-wrap w-full px-6">
+            <select name="member_cat" class="mr-2 mb-2 md:mb-0 self-center w-full md:w-auto h-8">
+              <option value="" selected disabled>Select member organization</option>
+              <option value="">All</option>
+              <?php
+                $parentCategory = 'members';
+                $parentCategoryObject = get_category_by_slug($parentCategory); 
+                $parentCategoryId = $parentCategoryObject->term_id;
+                $terms = get_terms( array(
+                  'taxonomy' => 'category',
+                  'child_of' => $parentCategoryId,
+                  'hide_empty' => false
+                ));
+
+                foreach ( $terms as $term ) {
+                    echo '<option class="p-4" value="' . $term->term_id . '">' . $term->name . '</option>';
+                }
+              ?>
+            </select>
+            <select name="topic_cat" class="mr-2 mb-2 md:mb-0 self-center w-full md:w-auto h-8">
+              <option value="" selected disabled>Select topic</option>
+              <option value="">All</option>
+              <?php
+                $parentCategory = 'topics';
+                $parentCategoryObject = get_category_by_slug($parentCategory); 
+                $parentCategoryId = $parentCategoryObject->term_id;
+                $terms = get_terms( array(
+                  'taxonomy' => 'category',
+                  'child_of' => $parentCategoryId,
+                  'hide_empty' => false
+                ));
+
+                foreach ( $terms as $term ) {
+                    echo '<option class="p-4" value="' . $term->term_id . '">' . $term->name . '</option>';
+                }
+              ?>
+            </select>
+            <button id="filterButton" class="bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold py-2 px-4 mr-2 rounded">
+              Filter results
+            </button>
+            <input type="hidden" name="action" value="filter_workshop">
+          </div>
+        </form>
+      </div>
+      
+      <!-- Workshop items -->
+      <div class="flex flex-wrap w-full m-auto p-6" id="response">
       <?php
         $regular = new WP_Query( array(
           'post_type' => 'events',
