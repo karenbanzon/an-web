@@ -120,13 +120,13 @@
             <div class="pt-4">
             <?php if ($mems[0]['name']) { ?>
               <?php if ( has_post_thumbnail() ) { ?>
-                <div class="round-image w-8 inline-block align-middle" style="background-image: url(<?php echo the_post_thumbnail_url(); ?>)">
-                </div>
+                <img class="w-16" src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+              <?php } else { ?>
+                <span class="inline-block align-middle text-grey text-sm py-2"><?php echo $mems[0]['name']; ?></span>
               <?php } ?>
-              <span class="inline-block align-middle text-grey text-sm py-2"><?php echo $mems[0]['name']; ?></span>
             <?php } ?>
             </div>
-            <p class="text-grey-darker text-sm mt-4"><?php echo esc_html( get_the_excerpt() ); ?></p>
+            <p class="text-grey-darker text-sm mt-2"><?php echo esc_html( get_the_excerpt() ); ?></p>
             <span class="text-grey text-sm">Topics:</span>
             <div>
               <?php foreach($cats as $cat) { ?>
