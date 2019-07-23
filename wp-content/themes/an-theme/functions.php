@@ -957,7 +957,7 @@ function an_filter_resource(){
 					$mems[] = array( 'name' => $mem->name, 'slug' => $mem->slug );
 			}
 
-			$orgArgs = array(
+			$args = array(
 				'numberposts' => 1,
 				'category' => $mems[0]['term_id'],
 				'post_type' => 'members',
