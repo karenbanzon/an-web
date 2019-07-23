@@ -957,22 +957,13 @@ function an_filter_resource(){
 					$mems[] = array( 'name' => $mem->name, 'slug' => $mem->slug );
 			}
 
-			$args = array(
-				'numberposts' => 1,
-				'category' => $mems[0]['term_id'],
-				'post_type' => 'members',
-			);
-
-			$currentOrg = get_posts($args);
-			$currentOrgID = $currentOrg[0]->ID;
-
 			echo '<a href="';
 			echo the_permalink();
 			echo '" class="w-full flex flex-wrap items-center hover:shadow p-6">';
 			echo '<div class="w-full lg:w-1/3">';
-			if ( has_post_thumbnail($post = $currentOrgID) ) {
+			if ( has_post_thumbnail() ) {
 				echo '<img src="';
-				echo the_post_thumbnail_url($post = $currentOrgID);
+				echo the_post_thumbnail_url();
 				echo '" alt="';
 				echo the_title();
 				echo '">';

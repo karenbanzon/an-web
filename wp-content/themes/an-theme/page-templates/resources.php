@@ -135,8 +135,8 @@
                 $currentOrgID = $currentOrg[0]->ID;
 
               ?>
-              <?php if ( has_post_thumbnail($post = $currentOrgID) ) { ?>
-                <img class="w-16" src="<?php echo the_post_thumbnail_url($post = $currentOrgID); ?>" alt="<?php the_title($currentOrg->ID); ?>">
+              <?php if ( has_post_thumbnail() ) { ?>
+                <img class="w-16" src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title($currentOrg->ID); ?>">
               <?php } else { ?>
                 <span class="inline-block align-middle text-grey text-sm py-2"><?php echo $mems[0]['name']; ?></span>
               <?php } ?>
