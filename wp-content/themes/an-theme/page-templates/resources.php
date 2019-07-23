@@ -125,17 +125,18 @@
             <div class="pt-4">
             <?php if ($mems[0]['name']) { ?>
               <?php
-                $orgArgs = array(
+                $args = array(
                   'numberposts' => 1,
                   'category' => $mems[0]['term_id'],
-                  'post_type' => 'members',
+                  'post_type' => 'members'
                 );
 
-                $currentOrg = get_posts($orgArgs);
+                $currentOrg = get_posts($args);
+                $currentOrgID = $currentOrg[0]->ID;
 
               ?>
-              <?php if ( has_post_thumbnail($currentOrg->ID) ) { ?>
-                <img class="w-16" src="<?php echo the_post_thumbnail_url($currentOrg->ID); ?>" alt="<?php the_title(); ?>">
+              <?php if ( has_post_thumbnail($post = $currentOrgID) ) { ?>
+                <img class="w-16" src="<?php echo the_post_thumbnail_url($post = $currentOrgID); ?>" alt="<?php the_title($currentOrg->ID); ?>">
               <?php } else { ?>
                 <span class="inline-block align-middle text-grey text-sm py-2"><?php echo $mems[0]['name']; ?></span>
               <?php } ?>
