@@ -62,6 +62,7 @@ jQuery(document).ready(function() {
 
   $('#filter').submit(function(){
     var filter = $('#filter');
+    var buttonText = filter.find('button#filterButton').text();
     $.ajax({
       url:filter.attr('action'),
       data:filter.serialize(), // form data
@@ -70,7 +71,7 @@ jQuery(document).ready(function() {
         filter.find('button#filterButton').text('Processing...'); // changing the button label
       },
       success:function(data){
-        filter.find('button#filterButton').text('Filter results'); // changing the button label back
+        filter.find('button#filterButton').text(buttonText); // changing the button label back
         $('#response').html(data); // insert data
       }
     });
