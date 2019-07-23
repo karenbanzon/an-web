@@ -114,7 +114,7 @@
             
         foreach($post_members as $m){
             $mem = get_category( $m );
-            $mems[] = array( 'name' => $mem->name, 'slug' => $mem->slug );
+            $mems[] = array( 'name' => $mem->name, 'slug' => $mem->slug, 'id' => $mem->term_id );
         }
 
         ?>
@@ -124,8 +124,18 @@
             <h2 class="text-black hover:text-anblue"><?php the_title(); ?></h2>
             <div class="pt-4">
             <?php if ($mems[0]['name']) { ?>
-              <?php if ( has_post_thumbnail() ) { ?>
-                <img class="w-16" src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+              <?php
+                $orgArgs = array(
+                  'numberposts' => 1,
+                  'category' => $mems[0]['term_id'],
+                  'post_type' => 'members',
+                );
+
+                $currentOrg = get_posts($orgArgs);
+
+              ?>
+              <?php if ( has_post_thumbnail($currentOrg->ID) ) { ?>
+                <img class="w-16" src="<?php echo the_post_thumbnail_url($currentOrg->ID); ?>" alt="<?php the_title(); ?>">
               <?php } else { ?>
                 <span class="inline-block align-middle text-grey text-sm py-2"><?php echo $mems[0]['name']; ?></span>
               <?php } ?>
