@@ -125,8 +125,6 @@
         } ?>
       </nav>
       
-      
-        
       <?php
         $wp_query = NULL;
         $wp_query = $temp_query;
