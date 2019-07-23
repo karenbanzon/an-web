@@ -114,17 +114,18 @@
 
         ?>
 
-        <a href="<?php the_permalink() ?>"" class="w-full flex flex-wrap items-center hover:shadow p-6">
-          <div class="w-full lg:w-1/3">
-            <?php if ( has_post_thumbnail() ) { ?>
-              <img src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
-            <?php } ?>
-          </div>
-          <div class="w-full lg:w-2/3 p-4">
+        <a href="<?php the_permalink() ?>"" class="w-full lg:w-1/3 md:w-1/2 flex flex-wrap content-start items-center hover:shadow p-6">
+          <div class="w-full p-4">
             <h2 class="text-black hover:text-anblue"><?php the_title(); ?></h2>
+            <div class="pt-4">
             <?php if ($mems[0]['name']) { ?>
-              <span class="inline-block text-grey text-sm py-2"><?php echo $mems[0]['name']; ?></span>
+              <?php if ( has_post_thumbnail() ) { ?>
+                <div class="round-image w-8 inline-block align-middle" style="background-image: url(<?php echo the_post_thumbnail_url(); ?>)">
+                </div>
+              <?php } ?>
+              <span class="inline-block align-middle text-grey text-sm py-2"><?php echo $mems[0]['name']; ?></span>
             <?php } ?>
+            </div>
             <p class="text-grey-darker text-sm mt-4"><?php echo esc_html( get_the_excerpt() ); ?></p>
             <span class="text-grey text-sm">Topics:</span>
             <div>
