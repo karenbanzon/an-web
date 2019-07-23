@@ -142,34 +142,36 @@
         </a>
 
         <?php endwhile; ?>
-      </div>
-      <nav class="flex flex-wrap w-full lg:w-1/3 m-auto p-6">
-        <?php if ( $resources->max_num_pages > 1 ) {
-          echo '<div class="nav-next w-1/2 text-right p-4">';
-          if ( get_previous_posts_link() ) {
-            echo previous_posts_link( '&larr; Newer' );
-          } else {
-            echo '<span class="text-grey">&larr; Newer</span>';
-          }
-          echo '</div>';
+        <div class="w-full block m-auto p-6">
+          <nav class="flex flex-wrap">
+            <?php if ( $resources->max_num_pages > 1 ) {
+              echo '<div class="nav-next w-1/2 text-right p-4">';
+              if ( get_previous_posts_link() ) {
+                echo previous_posts_link( '&larr; Newer' );
+              } else {
+                echo '<span class="text-grey">&larr; Newer</span>';
+              }
+              echo '</div>';
 
-          echo '<div class="nav-previous w-1/2 p-4">';
-          if ( get_next_posts_link() ) {
-            echo next_posts_link( 'Older &rarr;' );
-          } else {
-            echo '<span class="text-grey">Older &rarr;</span>';
-          }
-          echo '</div>';
-        } ?>
-      </nav>
+              echo '<div class="nav-previous w-1/2 p-4">';
+              if ( get_next_posts_link() ) {
+                echo next_posts_link( 'Older &rarr;' );
+              } else {
+                echo '<span class="text-grey">Older &rarr;</span>';
+              }
+              echo '</div>';
+            } ?>
+          </nav>
+        </div>
         
-      <?php
-        $wp_query = NULL;
-        $wp_query = $temp_query;
+        <?php
+          $wp_query = NULL;
+          $wp_query = $temp_query;
 
-        endif;
-        wp_reset_postdata();
-      ?>
+          endif;
+          wp_reset_postdata();
+        ?>
+      </div>
     </article>
   </section>
 </main>

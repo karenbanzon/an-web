@@ -727,6 +727,7 @@ function an_filter_webinar(){
 			'order'	=> $_POST['date'], // ASC or DESC
 			'post_type' => 'events',
 			'category__and' => array($_POST['member_cat'], $_POST['topic_cat'], $primaryCategoryId),
+			'posts_per_page' => -1
 		);
 	} else if ( (isset( $_POST['member_cat'] ) && $_POST['member_cat'] != "") || (isset( $_POST['member_cat'] ) && $_POST['member_cat'] != "" && isset( $_POST['topic_cat'] ) && $_POST['topic_cat'] = "") ) {
 		// if only member org is set
@@ -735,6 +736,7 @@ function an_filter_webinar(){
 			'order'	=> $_POST['date'], // ASC or DESC
 			'post_type' => 'events',
 			'category__and' => array($_POST['member_cat'], $primaryCategoryId),
+			'posts_per_page' => -1
 		);
 	} else if ( (isset( $_POST['topic_cat'] ) && $_POST['topic_cat']) || (isset( $_POST['member_cat'] ) && $_POST['member_cat'] = "" && isset( $_POST['topic_cat'] ) && $_POST['topic_cat'] != "") ) {
 		// if only topic is set
@@ -743,13 +745,15 @@ function an_filter_webinar(){
 			'order'	=> $_POST['date'], // ASC or DESC
 			'post_type' => 'events',
 			'category__and' => array($_POST['topic_cat'], $primaryCategoryId),
+			'posts_per_page' => -1
 		);
 	} else {
 		$args = array(
 			'orderby' => 'date', // we will sort posts by date
 			'order'	=> $_POST['date'], // ASC or DESC
 			'post_type' => 'events',
-			'cat' => $primaryCategoryId
+			'cat' => $primaryCategoryId,
+			'posts_per_page' => -1
 		);
 	}
  
@@ -807,6 +811,7 @@ function an_filter_workshop(){
 			'order'	=> $_POST['date'], // ASC or DESC
 			'post_type' => 'events',
 			'category__and' => array($_POST['member_cat'], $_POST['topic_cat'], $primaryCategoryId),
+			'posts_per_page' => -1
 		);
 	} else if ( (isset( $_POST['member_cat'] ) && $_POST['member_cat'] != "") || (isset( $_POST['member_cat'] ) && $_POST['member_cat'] != "" && isset( $_POST['topic_cat'] ) && $_POST['topic_cat'] = "") ) {
 		// if only member org is set
@@ -815,6 +820,7 @@ function an_filter_workshop(){
 			'order'	=> $_POST['date'], // ASC or DESC
 			'post_type' => 'events',
 			'category__and' => array($_POST['member_cat'], $primaryCategoryId),
+			'posts_per_page' => -1
 		);
 	} else if ( (isset( $_POST['topic_cat'] ) && $_POST['topic_cat']) || (isset( $_POST['member_cat'] ) && $_POST['member_cat'] = "" && isset( $_POST['topic_cat'] ) && $_POST['topic_cat'] != "") ) {
 		// if only topic is set
@@ -823,13 +829,15 @@ function an_filter_workshop(){
 			'order'	=> $_POST['date'], // ASC or DESC
 			'post_type' => 'events',
 			'category__and' => array($_POST['topic_cat'], $primaryCategoryId),
+			'posts_per_page' => -1
 		);
 	} else {
 		$args = array(
 			'orderby' => 'date', // we will sort posts by date
 			'order'	=> $_POST['date'], // ASC or DESC
 			'post_type' => 'events',
-			'cat' => $primaryCategoryId
+			'cat' => $primaryCategoryId,
+			'posts_per_page' => -1
 		);
 	}
  
@@ -884,6 +892,7 @@ function an_filter_resource(){
 			'order'	=> $_POST['date'], // ASC or DESC
 			'post_type' => 'resources',
 			'category__and' => array($_POST['member_cat'], $_POST['topic_cat']),
+			'posts_per_page' => -1
 		);
 	} else if ( (isset( $_POST['member_cat'] ) && $_POST['member_cat'] != "") || (isset( $_POST['member_cat'] ) && $_POST['member_cat'] != "" && isset( $_POST['topic_cat'] ) && $_POST['topic_cat'] = "") ) {
 		// if only member org is set
@@ -892,6 +901,7 @@ function an_filter_resource(){
 			'order'	=> $_POST['date'], // ASC or DESC
 			'post_type' => 'resources',
 			'category__and' => array($_POST['member_cat']),
+			'posts_per_page' => -1
 		);
 	} else if ( (isset( $_POST['topic_cat'] ) && $_POST['topic_cat']) || (isset( $_POST['member_cat'] ) && $_POST['member_cat'] = "" && isset( $_POST['topic_cat'] ) && $_POST['topic_cat'] != "") ) {
 		// if only topic is set
@@ -900,12 +910,14 @@ function an_filter_resource(){
 			'order'	=> $_POST['date'], // ASC or DESC
 			'post_type' => 'resources',
 			'category__and' => array($_POST['topic_cat']),
+			'posts_per_page' => -1
 		);
 	} else {
 		$args = array(
 			'orderby' => 'date', // we will sort posts by date
 			'order'	=> $_POST['date'], // ASC or DESC
-			'post_type' => 'resources'
+			'post_type' => 'resources',
+			'posts_per_page' => -1
 		);
 	}
  
@@ -1003,6 +1015,7 @@ function an_filter_general(){
 			'order'	=> $_POST['date'], // ASC or DESC
 			'post_type' => array('resources', 'events'),
 			'category__and' => array($_POST['member_cat'], $_POST['topic_cat']),
+			'posts_per_page' => -1
 		);
 	} else if ( (isset( $_POST['member_cat'] ) && $_POST['member_cat'] != "") || (isset( $_POST['member_cat'] ) && $_POST['member_cat'] != "" && isset( $_POST['topic_cat'] ) && $_POST['topic_cat'] = "") ) {
 		// if only member org is set
@@ -1011,6 +1024,7 @@ function an_filter_general(){
 			'order'	=> $_POST['date'], // ASC or DESC
 			'post_type' => array('resources', 'events'),
 			'category__and' => array($_POST['member_cat']),
+			'posts_per_page' => -1
 		);
 	} else if ( (isset( $_POST['topic_cat'] ) && $_POST['topic_cat']) || (isset( $_POST['member_cat'] ) && $_POST['member_cat'] = "" && isset( $_POST['topic_cat'] ) && $_POST['topic_cat'] != "") ) {
 		// if only topic is set
@@ -1019,16 +1033,22 @@ function an_filter_general(){
 			'order'	=> $_POST['date'], // ASC or DESC
 			'post_type' => array('resources', 'events'),
 			'category__and' => array($_POST['topic_cat']),
+			'posts_per_page' => -1
 		);
 	} else {
 		$args = array(
 			'orderby' => 'date', // we will sort posts by date
 			'order'	=> $_POST['date'], // ASC or DESC
-			'post_type' => array('resources', 'events')
+			'post_type' => array('resources', 'events'),
+			'posts_per_page' => -1
 		);
 	}
  
 	$query = new WP_Query( $args );
+
+	$temp_query = $wp_query;
+	$wp_query   = NULL;
+	$wp_query   = $query;
  
 	if( $query->have_posts() ) :
 		while( $query->have_posts() ): $query->the_post();
@@ -1060,6 +1080,7 @@ function an_filter_general(){
 			echo '</a>';
 
 		endwhile;
+
 		wp_reset_postdata();
 	else :
 		include('not-found.php');
