@@ -958,7 +958,7 @@ function an_filter_resource(){
 					
 			foreach($post_members as $m){
 					$mem = get_category( $m );
-					$mems[] = array( 'name' => $mem->name, 'slug' => $mem->slug );
+					$mems[] = array( 'name' => $mem->name, 'slug' => $mem->slug, 'id' => $mem->term_id );
 			}
 
 			echo '<a href="<?php the_permalink() ?>"" class="w-full lg:w-1/3 md:w-1/2 flex flex-wrap content-start items-center hover:shadow p-6">';
