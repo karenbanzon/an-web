@@ -921,14 +921,14 @@ function an_filter_resource(){
 		);
 	}
  
-	$query = new WP_Query( $args );
+	$resources = new WP_Query( $args );
 
 	$temp_query = $wp_query;
 	$wp_query   = NULL;
-	$wp_query   = $query;
+	$wp_query   = $resources;
  
-	if( $query->have_posts() ) :
-		while( $query->have_posts() ): $query->the_post();
+	if( $resources->have_posts() ) :
+		while( $resources->have_posts() ): $resources->the_post();
 
 			$topics = get_category_by_slug( 'topics' );
 			$members = get_category_by_slug( 'members' );
@@ -1052,14 +1052,14 @@ function an_filter_general(){
 		);
 	}
  
-	$query = new WP_Query( $args );
+	$generalQuery = new WP_Query( $args );
 
 	$temp_query = $wp_query;
 	$wp_query   = NULL;
-	$wp_query   = $query;
+	$wp_query   = $generalQuery;
  
-	if( $query->have_posts() ) :
-		while( $query->have_posts() ): $query->the_post();
+	if( $generalQuery->have_posts() ) :
+		while( $generalQuery->have_posts() ): $generalQuery->the_post();
 
 			echo '<a href="';
 			echo the_permalink();
@@ -1092,6 +1092,9 @@ function an_filter_general(){
 		wp_reset_postdata();
 	else :
 		include('not-found.php');
+
+	$wp_query = NULL;
+	$wp_query = $temp_query;
 	endif;
  
 	die();
