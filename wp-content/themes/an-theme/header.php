@@ -54,7 +54,7 @@
                 <a href="<?php echo get_home_url() ?>/our-work/" class="block w-full lg:w-auto lg:flex pt-6 lg:pt-1 lg:pl-2 text-grey hover:text-anblue group-hover:text-anblue">Our work &darr;</a>
                 <ul class="nav-dropdown list-reset ml-2 p-2 z-10 bg-white shadow hidden">
                   <a href="<?php echo get_home_url() ?>/our-work/our-approach-to-accountability/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Our approach to accountability</a>
-                  <a href="<?php echo get_home_url() ?>/our-work/12-accountability-commitments/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">12 accountability commitments</a>
+                  <!-- <a href="<?php echo get_home_url() ?>/our-work/12-accountability-commitments/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">12 accountability commitments</a> -->
                   <a href="<?php echo get_home_url() ?>/our-work/reporting/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Reporting</a>
                   <!-- <a href="<?php echo get_home_url() ?>/our-work/feedback-and-complaints/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Feedback & complaints</a> -->
                   <a href="<?php echo get_home_url() ?>/our-work/projects-and-partnerships/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Projects & partnerships</a>
@@ -118,7 +118,7 @@
                 <a href="<?php echo get_home_url() ?>/our-work/" class="flex justify-between block w-full lg:w-auto lg:flex px-2 py-2 text-grey-darker hover:text-anblue group-hover:text-anblue"><strong>Our work</strong><span class="nav-dropdown-toggle text-anblue px-2">&darr;</span></a>
                 <ul class="nav-dropdown list-reset ml-2 bg-white text-sm hidden">
                   <a href="<?php echo get_home_url() ?>/our-work/our-approach-to-accountability/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Our approach to accountability</a>
-                  <a href="<?php echo get_home_url() ?>/our-work/12-accountability-commitments/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">12 accountability commitments</a>
+                  <!-- <a href="<?php echo get_home_url() ?>/our-work/12-accountability-commitments/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">12 accountability commitments</a> -->
                   <a href="<?php echo get_home_url() ?>/our-work/reporting/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Reporting</a>
                   <!-- <a href="<?php echo get_home_url() ?>/our-work/feedback-and-complaints/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Feedback & complaints</a> -->
                   <a href="<?php echo get_home_url() ?>/our-work/projects-and-partnerships/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Projects & partnerships</a>
