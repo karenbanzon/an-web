@@ -1000,6 +1000,9 @@ function an_filter_resource(){
 		wp_reset_postdata();
 	else :
 		include('not-found.php');
+
+	$wp_query = NULL;
+	$wp_query = $temp_query;
 	endif;
  
 	die();
