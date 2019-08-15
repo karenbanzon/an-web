@@ -975,12 +975,6 @@ function an_filter_resource(){
 
 				$currentOrg = get_posts($args);
         if ( get_the_post_thumbnail_url($currentOrg[0]->ID) ) {
-					echo '<span>';
-					echo json_encode($mems);
-					echo '</span>';
-					echo '<span>';
-					echo json_encode($currentOrg);
-					echo '</span>';
 					echo '<img class="w-16" src="';
 					echo get_the_post_thumbnail_url($currentOrg[0]->ID);
 					echo '" alt="';
