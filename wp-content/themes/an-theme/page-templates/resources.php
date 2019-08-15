@@ -127,7 +127,7 @@
               <?php
                 $args = array(
                   'numberposts' => 1,
-                  'category' => $mems[0]['term_id'],
+                  'category' => $mems[0]['id'],
                   'post_type' => 'members'
                 );
 
@@ -136,7 +136,8 @@
 
               ?>
               <?php if ( get_the_post_thumbnail_url($currentOrg[0]->ID) ) { ?>
-                <span><?php echo $currentOrg[0]->ID; ?></span>
+                <span><?php echo json_encode($mems) ?></span>
+                <span><?php echo json_encode($currentOrg) ?></span>
                 <img class="w-16" src="<?php echo get_the_post_thumbnail_url($currentOrg[0]->ID); ?>" alt="<?php echo $currentOrg[0]->post_title; ?>">
               <?php } else { ?>
                 <span class="inline-block align-middle text-grey text-sm py-2"><?php echo $currentOrg[0]->post_title; ?></span>
