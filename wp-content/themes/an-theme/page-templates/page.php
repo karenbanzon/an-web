@@ -11,7 +11,7 @@
         <div class="page-title"><h1 class="entry-title w-full ml-auto mr-auto mt-4 mb-4 pt-6 pb-6 text-white"><?php the_title(); ?></h1></div>
       </header>
       <?php } else { ?>
-      <header class="hidden header w-full m-auto p-6">
+      <header class="hidden header w-full m-auto px-6">
         <h1 class="entry-title pt-4 pb-4 text-grey-darkest"><?php the_title(); ?></h1>
       </header>
       <?php } ?>
