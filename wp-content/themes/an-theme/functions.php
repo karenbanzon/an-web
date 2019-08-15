@@ -922,6 +922,10 @@ function an_filter_resource(){
 	}
  
 	$query = new WP_Query( $args );
+
+	$temp_query = $wp_query;
+	$wp_query   = NULL;
+	$wp_query   = $query;
  
 	if( $query->have_posts() ) :
 		while( $query->have_posts() ): $query->the_post();
