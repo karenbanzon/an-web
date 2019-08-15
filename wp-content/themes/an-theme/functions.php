@@ -970,7 +970,6 @@ function an_filter_resource(){
 				);
 
 				$currentOrg = get_posts($args);
-				$currentOrgID = $currentOrg[0]->ID;
         if ( get_the_post_thumbnail_url($currentOrg[0]->ID) ) {
 					echo '<img class="w-16" src="';
 					echo get_the_post_thumbnail_url($currentOrg[0]->ID);
