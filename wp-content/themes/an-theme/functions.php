@@ -965,7 +965,7 @@ function an_filter_resource(){
       if ($mems[0]['name']) {
 				$args = array(
 					'numberposts' => 1,
-					'category' => $mems[0]['term_id'],
+					'category' => $mems[0]['id'],
 					'post_type' => 'members'
 				);
 
