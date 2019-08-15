@@ -135,10 +135,10 @@
                 $currentOrgID = $currentOrg[0]->ID;
 
               ?>
-              <?php if ( has_post_thumbnail() ) { ?>
-                <img class="w-16" src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title($currentOrg->ID); ?>">
+              <?php if ( get_the_post_thumbnail_url($currentOrg[0]->ID) ) { ?>
+                <img class="w-16" src="<?php echo get_the_post_thumbnail_url($currentOrg[0]->ID); ?>" alt="<?php echo $currentOrg[0]->post_title; ?>">
               <?php } else { ?>
-                <span class="inline-block align-middle text-grey text-sm py-2"><?php echo $mems[0]['name']; ?></span>
+                <span class="inline-block align-middle text-grey text-sm py-2"><?php echo $currentOrg[0]->post_title; ?></span>
               <?php } ?>
             <?php } ?>
             </div>

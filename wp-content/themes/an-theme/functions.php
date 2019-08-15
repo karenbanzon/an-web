@@ -957,40 +957,42 @@ function an_filter_resource(){
 					$mems[] = array( 'name' => $mem->name, 'slug' => $mem->slug );
 			}
 
-			echo '<a href="';
-			echo the_permalink();
-			echo '" class="w-full flex flex-wrap items-center hover:shadow p-6">';
-			echo '<div class="w-full lg:w-1/3">';
-			if ( has_post_thumbnail() ) {
-				echo '<img src="';
-				echo the_post_thumbnail_url();
-				echo '" alt="';
-				echo the_title();
-				echo '">';
-			}
-			echo '</div>';
-			echo '<div class="w-full lg:w-2/3 p-4">';
+			echo '<a href="<?php the_permalink() ?>"" class="w-full lg:w-1/3 md:w-1/2 flex flex-wrap content-start items-center hover:shadow p-6">';
+      echo '<div class="w-full p-4">';
 			echo '<h2 class="text-black hover:text-anblue">';
 			echo the_title();
-			echo '</h2>';
-			if ($mems[0]['name']) {
-				echo '<span class="inline-block text-grey text-sm py-2">';
-				echo $mems[0]['name'];
-				echo '</span>';
-			}
-			echo '<p class="text-grey text-sm mt-4">';
-			echo esc_html( get_the_excerpt() );
-			echo '</p>';
-			echo '<span class="text-grey text-sm">Topics:</span>';
-			echo '<div>';
-			foreach($cats as $cat) {
-				echo '<span class="rounded inline-block bg-grey-light text-grey-dark text-xs p-1 my-1">';
-				echo $cat['name'];
-				echo '</span> ';
-			}
-			echo '</div>';
-			echo '</div>';
-			echo '</a>';
+			echo '</h2><div class="pt-4">';
+      if ($mems[0]['name']) {
+				$args = array(
+					'numberposts' => 1,
+					'category' => $mems[0]['term_id'],
+					'post_type' => 'members'
+				);
+
+				$currentOrg = get_posts($args);
+				$currentOrgID = $currentOrg[0]->ID;
+        if ( get_the_post_thumbnail_url($currentOrg[0]->ID) ) {
+					echo '<img class="w-16" src="';
+					echo get_the_post_thumbnail_url($currentOrg[0]->ID);
+					echo '" alt="';
+					echo $currentOrg[0]->post_title;
+					echo '">';
+					} else {
+						echo '<span class="inline-block align-middle text-grey text-sm py-2">';
+						echo $currentOrg[0]->post_title;
+						echo '</span>';
+					}
+				}
+      	echo '</div>';
+				echo '<p class="text-grey-darker text-sm mt-2">';
+				echo esc_html( get_the_excerpt() );
+				echo '</p><span class="text-grey text-sm">Topics:</span><div>';
+        foreach($cats as $cat) {
+					echo '<span class="rounded inline-block bg-grey-light text-grey-dark text-xs p-1 my-1">';
+					echo $cat['name'];
+					echo '</span>';
+        }
+        echo '</div></div></a>';
 		endwhile;
 		wp_reset_postdata();
 	else :
