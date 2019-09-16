@@ -21,52 +21,14 @@
       <?php endwhile; endif; ?>
 
       <hr class="w-full border-b border-grey">
-
-      <!-- Regular events -->
-      <div class="flex flex-wrap w-full m-auto p-6">
-      <?php
-        $webinar = get_category_by_slug( 'webinar' );
-        $webinar_id = $webinar->term_id;
-
-        $workshop = get_category_by_slug( 'workshop' );
-        $workshop_id = $workshop->term_id;
-
-        $regular = new WP_Query( array(
-          'post_type' => 'events',
-          'category_name' => 'events',
-          'category__not_in' => array($webinar_id, $workshop_id)
-        ) );
-
-        if ( $regular->have_posts() ) : ?>
-        <div class="w-full">
-          <h2 class="text-grey-darkest">Events</h2>
-        </div>
-        
-        <?php while ( $regular->have_posts() ) : $regular->the_post(); ?>
-
-        <div class="w-full lg:w-1/3 p-6">
-          <h4><?php the_title(); ?></h4>
-        </div>
-
-        <?php endwhile; ?>
-
-        <div class="w-full text-center mt-6">
-          <a href="<?php echo get_home_url() ?>/events-all/" class="bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold py-2 px-4 mr-2 rounded">
-            View all events &rarr;
-          </a>
-        </div>
-        
-        <?php endif; wp_reset_postdata();?>
-      </div>
-
-      <hr class="w-full border-b border-grey">
         
       <!-- Webinars -->
       <div class="flex flex-wrap w-full m-auto p-6">
       <?php
         $regular = new WP_Query( array(
           'post_type' => 'events',
-          'category_name' => 'webinar'
+          'category_name' => 'webinar',
+          'posts_per_page' => 3
         ) );
 
         if ( $regular->have_posts() ) : ?>
@@ -99,7 +61,8 @@
 
         $regular = new WP_Query( array(
           'post_type' => 'events',
-          'category_name' => 'workshop'
+          'category_name' => 'workshop',
+          'posts_per_page' => 3
         ) );
 
         if ( $regular->have_posts() ) : ?>
