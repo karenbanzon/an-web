@@ -78,7 +78,7 @@
           if ( $irp->have_posts() ) : while ( $irp->have_posts() ) : $irp->the_post(); ?>
 
           <div class="flex w-full lg:w-1/3 md:w-1/2 p-4">
-            <div class="flex flex-wrap flex-1 content-start items-center card shadow p-2">
+            <div class="flex flex-wrap flex-1 content-between items-center card shadow p-2">
               <?php if ( has_post_thumbnail() ) { ?>
                 <div class="flex flex-wrap w-2/3 m-auto">
                   <div class="round-image mb-4" style="background-image: url(<?php echo the_post_thumbnail_url(); ?>)">
