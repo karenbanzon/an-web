@@ -78,27 +78,27 @@ jQuery(document).ready(function() {
     return false;
   });
 
-  $('.board-modal-open').click(function(e) {
+  $('.member-modal-open').click(function(e) {
     e.preventDefault()
 
     var img = $(this).attr('data-img')
     var title = $(this).attr('data-title')
     var desc = $(this).attr('data-desc')
 
-    $('#board-modal .board-img').attr("style", 'background-image: url(' + img + ')')
-    $('#board-modal .board-title').html(title)
-    $('#board-modal .board-desc').html(desc)
+    $('#member-modal .board-img').attr("style", 'background-image: url(' + img + ')')
+    $('#member-modal .board-title').html(title)
+    $('#member-modal .board-desc').html(desc)
     
-    $('#board-modal-container').removeClass('hidden')
-    $('#board-modal-container').addClass('flex')
-    $('#board-modal').removeClass('hidden')
+    $('#member-modal-container').removeClass('hidden')
+    $('#member-modal-container').addClass('flex')
+    $('#member-modal').removeClass('hidden')
   })
 
-  $('#board-modal-close', '#board-modal-container').click(function(e) {
+  $('#member-modal-close', '#member-modal-container').click(function(e) {
     e.preventDefault()
 
-    $('#board-modal-container').addClass('hidden')
-    $('#board-modal-container').removeClass('flex')
-    $('#board-modal').addClass('hidden')
+    $('#member-modal-container').addClass('hidden')
+    $('#member-modal-container').removeClass('flex')
+    $('#member-modal').addClass('hidden')
   })
 })
