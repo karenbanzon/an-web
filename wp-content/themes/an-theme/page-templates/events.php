@@ -41,8 +41,7 @@
         <div class="w-full lg:w-1/3 p-6 hover:shadow">
           <a href="<?php echo the_permalink(); ?>">
             <?php if ( has_post_thumbnail() ) { ?>
-              <div class="bg-cover bg-center mb-2" style="background-image:url(<?php echo the_post_thumbnail_url(); ?>); height: 300px;">
-              </div>
+              <img src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
             <?php } ?>
             <h4 class="text-black"><?php the_title(); ?></h4>
           </a>
@@ -81,8 +80,7 @@
         <div class="w-full lg:w-1/3 p-6 hover:shadow">
           <a href="<?php echo the_permalink(); ?>">
             <?php if ( has_post_thumbnail() ) { ?>
-              <div class="bg-cover bg-center mb-2" style="background-image:url(<?php echo the_post_thumbnail_url(); ?>); height: 300px;">
-              </div>
+              <img src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
             <?php } ?>
             <h4 class="text-black"><?php the_title(); ?></h4>
           </a>
