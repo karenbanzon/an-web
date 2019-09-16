@@ -38,8 +38,14 @@
         
         <?php while ( $regular->have_posts() ) : $regular->the_post(); ?>
 
-        <div class="w-full lg:w-1/3 p-6">
-          <h4><?php the_title(); ?></h4>
+        <div class="w-full lg:w-1/3 p-6 hover:shadow">
+          <a href="<?php echo the_permalink(); ?>">
+            <?php if ( has_post_thumbnail() ) { ?>
+              <div class="bg-cover bg-center mb-2" style="background-image:url(<?php echo the_post_thumbnail_url(); ?>); height: 300px;">
+              </div>
+            <?php } ?>
+            <h4 class="text-black"><?php the_title(); ?></h4>
+          </a>
         </div>
 
         <?php endwhile; ?>
@@ -72,8 +78,14 @@
         
         <?php while ( $regular->have_posts() ) : $regular->the_post(); ?>
 
-        <div class="w-full lg:w-1/3 p-6">
-          <h4><?php the_title(); ?></h4>
+        <div class="w-full lg:w-1/3 p-6 hover:shadow">
+          <a href="<?php echo the_permalink(); ?>">
+            <?php if ( has_post_thumbnail() ) { ?>
+              <div class="bg-cover bg-center mb-2" style="background-image:url(<?php echo the_post_thumbnail_url(); ?>); height: 300px;">
+              </div>
+            <?php } ?>
+            <h4 class="text-black"><?php the_title(); ?></h4>
+          </a>
         </div>
 
         <?php endwhile; ?>
