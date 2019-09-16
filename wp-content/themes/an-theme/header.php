@@ -61,10 +61,10 @@
                 </ul>
               </li>
               <li class="nav-item group inline-block px-1 py-4">
-                <a href="<?php echo get_home_url() ?>/our-accountability/" class="block w-full lg:w-auto lg:flex pt-6 lg:pt-1 lg:pl-2 text-grey hover:text-anblue group-hover:text-anblue">Our accountability &darr;</a>
+                <a href="<?php echo get_home_url() ?>/our-accountability/" class="block w-full lg:w-auto lg:flex pt-6 lg:pt-1 lg:pl-2 text-grey hover:text-anblue group-hover:text-anblue" onclick="return false">Our accountability &darr;</a>
                 <ul class="nav-dropdown list-reset ml-2 p-2 z-10 bg-white shadow hidden">
-                  <a href="<?php echo get_home_url() ?>/our-accountability/our-policies-and-finance/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Our policies &amp; finance</a>
-                  <a href="<?php echo get_home_url() ?>/our-accountability/audits-finances-reports/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Audits, finances &amp; reports</a>
+                  <a href="<?php echo get_home_url() ?>/our-accountability/our-policies-and-finance/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Values &amp; policies</a>
+                  <a href="<?php echo get_home_url() ?>/our-accountability/audits-finances-reports/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Reports, finances &amp; audits</a>
                   <a href="<?php echo get_home_url() ?>/our-accountability/feedback-and-complaints/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Feedback & complaints</a>
                 </ul>
               </li>
@@ -125,10 +125,10 @@
                 </ul>
               </li>
               <li class="nav-item group block px-2">
-                <a href="<?php echo get_home_url() ?>/our-accountability/" class="flex justify-between block w-full lg:w-auto lg:flex px-2 py-2 text-grey-darker hover:text-anblue group-hover:text-anblue"><strong>Our accountability</strong><span class="nav-dropdown-toggle text-anblue px-2">&darr;</span></a>
+                <a href="<?php echo get_home_url() ?>/our-accountability/" class="flex justify-between block w-full lg:w-auto lg:flex px-2 py-2 text-grey-darker hover:text-anblue group-hover:text-anblue" onclick="return false"><strong>Our accountability</strong><span class="nav-dropdown-toggle text-anblue px-2">&darr;</span></a>
                 <ul class="nav-dropdown list-reset ml-2 bg-white text-sm hidden">
-                  <a href="<?php echo get_home_url() ?>/our-accountability/our-policies-and-finance/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Our policies &amp; finance</a>
-                  <a href="<?php echo get_home_url() ?>/our-accountability/audits-finances-reports/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Audits, finances &amp; reports</a>
+                  <a href="<?php echo get_home_url() ?>/our-accountability/our-policies-and-finance/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Values &amp; policies</a>
+                  <a href="<?php echo get_home_url() ?>/our-accountability/audits-finances-reports/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Reports, finances &amp; audits</a>
                   <a href="<?php echo get_home_url() ?>/our-accountability/feedback-and-complaints/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Feedback & complaints</a>
                 </ul>
               </li>
