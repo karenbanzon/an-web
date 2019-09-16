@@ -40,7 +40,7 @@
           if ( $board->have_posts() ) : while ( $board->have_posts() ) : $board->the_post(); ?>
 
           <div class="flex w-full lg:w-1/4 p-4">
-            <div class="flex flex-wrap flex-1 content-start items-center card shadow p-2">
+            <div class="flex flex-wrap flex-1 content-between items-center card shadow p-2">
               <?php if ( has_post_thumbnail() ) { ?>
                 <div class="flex flex-wrap w-2/3 m-auto">
                   <div class="round-image mb-4" style="background-image: url(<?php echo the_post_thumbnail_url(); ?>)">
@@ -49,8 +49,16 @@
               <?php } ?>
               <div class="w-full px-2">
                 <h4 class="pb-1"><?php the_title(); ?></h4>
-                <span class="text-xs"><?php the_content(); ?></span>
+                <span class="text-xs"><?php the_excerpt(); ?></span>
               </div>
+              <a
+                class="board-modal-open w-full text-center bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold text-sm py-2 px-2 mr-2 rounded"
+                data-img="<?php echo the_post_thumbnail_url(); ?>"
+                data-title="<?php echo the_title(); ?>"
+                data-desc="<?php the_excerpt(); ?>"
+              >
+                View full profile
+              </a>
             </div>
           </div>
 
@@ -133,4 +141,21 @@
     </article>
   </section>
 </main>
+<div id="board-modal-container" class="hidden fixed flex-col w-full h-full items-center p-4 lg:mt-4" style="background-color: rgba(0,0,0,.75); top: 0">
+  <div id="board-modal" class="hidden modal w-full lg:w-1/3 h-full lg:h-auto z-50 absolute inset-auto bg-white shadow mt-8 p-8">
+    <span id="board-modal-close" class="absolute cursor-pointer" style="top: 16px; right: 16px">
+      <svg class="svg-icon" viewBox="0 0 20 20" width=28>
+        <path fill="auto" d="M15.898,4.045c-0.271-0.272-0.713-0.272-0.986,0l-4.71,4.711L5.493,4.045c-0.272-0.272-0.714-0.272-0.986,0s-0.272,0.714,0,0.986l4.709,4.711l-4.71,4.711c-0.272,0.271-0.272,0.713,0,0.986c0.136,0.136,0.314,0.203,0.492,0.203c0.179,0,0.357-0.067,0.493-0.203l4.711-4.711l4.71,4.711c0.137,0.136,0.314,0.203,0.494,0.203c0.178,0,0.355-0.067,0.492-0.203c0.273-0.273,0.273-0.715,0-0.986l-4.711-4.711l4.711-4.711C16.172,4.759,16.172,4.317,15.898,4.045z"></path>
+      </svg>
+    </span>
+    <div class="flex flex-wrap w-1/3 lg:w-2/3 m-auto">
+      <div class="round-image mb-4 board-img" style="background-image: url(<?php echo the_post_thumbnail_url(); ?>)">
+      </div>
+    </div>
+    <div class="w-full px-2">
+      <h4 class="pb-1 board-title"><?php echo the_title(); ?></h4>
+      <span class="text-xs board-desc"><?php the_content(); ?></span>
+    </div>
+  </div>
+</div>
 <?php get_footer(); ?>
