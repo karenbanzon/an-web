@@ -74,10 +74,20 @@
       <div class="flex flex-wrap w-full lg:w-3/4 m-auto p-6" id="response">
       <?php
 
+        if ( get_query_var( 'paged' ) ) {
+            $paged = get_query_var( 'paged' );
+          } elseif ( get_query_var( 'page' ) ) {
+            $paged = get_query_var( 'page' );
+          } else {
+            $paged = 1;
+          }
+
+        echo 'Paged: ' . $paged;
+
         $items = new WP_Query( array(
           'post_type' => array('resources', 'events'),
-          'posts_per_page' => 20,
-          'paged' => get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1
+          'posts_per_page' => 10,
+          'paged' => $paged
         ) );
 
         $temp_query = $wp_query;
