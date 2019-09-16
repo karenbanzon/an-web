@@ -55,7 +55,7 @@
                 class="board-modal-open w-full text-center bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold text-sm py-2 px-2 mr-2 rounded"
                 data-img="<?php echo the_post_thumbnail_url(); ?>"
                 data-title="<?php echo the_title(); ?>"
-                data-desc="<?php the_excerpt(); ?>"
+                data-desc="<?php esc_html(the_content()); ?>"
               >
                 View full profile
               </a>
