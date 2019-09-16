@@ -82,8 +82,6 @@
             $paged = 1;
           }
 
-        echo 'Paged: ' . $paged;
-
         $items = new WP_Query( array(
           'post_type' => array('resources', 'events'),
           'posts_per_page' => 10,

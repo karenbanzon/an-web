@@ -22,6 +22,43 @@
 
       <hr class="w-full border-b border-grey">
         
+      <!-- Blog -->
+      <div class="flex flex-wrap w-full m-auto p-6">
+      <?php
+        $regular = new WP_Query( array(
+          'post_type' => 'post',
+          'posts_per_page' => 3
+        ) );
+
+        if ( $regular->have_posts() ) : ?>
+        <div class="w-full">
+          <h2 class="text-grey-darkest">From the blog</h2>
+        </div>
+        
+        <?php while ( $regular->have_posts() ) : $regular->the_post(); ?>
+
+        <div class="w-full lg:w-1/3 p-6 hover:shadow">
+          <a href="<?php echo the_permalink(); ?>">
+            <?php if ( has_post_thumbnail() ) { ?>
+              <img src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+            <?php } ?>
+            <h4 class="text-black"><?php the_title(); ?></h4>
+          </a>
+        </div>
+
+        <?php endwhile; ?>
+
+        <div class="w-full text-center mt-6">
+          <a href="<?php echo get_home_url() ?>/blog/" class="bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold py-2 px-4 mr-2 rounded">
+            View all blog posts &rarr;
+          </a>
+        </div>
+        
+        <?php endif; wp_reset_postdata();?>
+      </div>
+
+      <hr class="w-full border-b border-grey">
+        
       <!-- Webinars -->
       <div class="flex flex-wrap w-full m-auto p-6">
       <?php
