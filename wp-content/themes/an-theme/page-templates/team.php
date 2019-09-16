@@ -39,7 +39,7 @@
 
           if ( $board->have_posts() ) : while ( $board->have_posts() ) : $board->the_post(); ?>
 
-          <div class="flex w-full lg:w-1/3 p-4">
+          <div class="flex w-full lg:w-1/3 md:w-1/2 p-4">
             <div class="flex flex-wrap flex-1 content-between items-center card shadow p-2">
               <?php if ( has_post_thumbnail() ) { ?>
                 <div class="flex flex-wrap w-2/3 m-auto">
@@ -77,7 +77,7 @@
 
           if ( $irp->have_posts() ) : while ( $irp->have_posts() ) : $irp->the_post(); ?>
 
-          <div class="flex w-full lg:w-1/3 p-4">
+          <div class="flex w-full lg:w-1/3 md:w-1/2 p-4">
             <div class="flex flex-wrap flex-1 content-start items-center card shadow p-2">
               <?php if ( has_post_thumbnail() ) { ?>
                 <div class="flex flex-wrap w-2/3 m-auto">
@@ -161,7 +161,8 @@
       </div>
     </div>
     <div class="w-full px-2">
-      <h4 class="pb-1 board-title"><?php echo the_title(); ?></h4>
+      <h2 class="pb-1 board-title"><?php echo the_title(); ?></h2>
+      <br>
       <span class="text-base leading-normal board-desc"><?php the_content(); ?></span>
     </div>
   </div>
