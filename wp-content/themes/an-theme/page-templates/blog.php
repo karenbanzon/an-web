@@ -48,10 +48,7 @@
               </div>
             <?php } ?>
             <h4 class="text-black"><?php the_title(); ?></h4>
-            <?php $post_meta = get_post_meta( get_the_ID() ); ?>
-            <small class="text-grey"><?php echo $post_meta['_start_day'][0] . '.' . $post_meta['_start_month'][0] . '.' . $post_meta['_start_year'][0] ?></small>
-            <br>
-            <small class="text-grey"><?php echo $post_meta['_event_location'][0] ?></small>
+            <small class="text-grey"><?php echo get_post_meta(get_the_ID(), 'author', true); ?></small>
           </a>
         </div>
 

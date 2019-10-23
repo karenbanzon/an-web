@@ -21,28 +21,45 @@
       <?php endwhile; endif; ?>
 
       <hr class="w-full border-b border-grey">
-      <div class="flex flex-wrap w-full m-auto p-6">
-        <table class="w-full">
-          <thead class="text-left">
-            <th class="p-4">Organization</th>
-            <th class="p-4">Report status</th>
-            <th class="p-4">Notes</th>
-            <th class="p-4 w-64">Report link</th>
-          </thead>
-          <tbody sheetsu="https://sheetsu.com/apis/v1.0su/7dbc76110d43/">
-            <tr class="hover:bg-grey-lightest">
-              <td class="p-4">{{member_organization}}</td>
-              <td class="p-4"><small class="text-white {{status_color}} p-2 rounded">{{status}}</small></td>
-              <td class="p-4"><small class="text-grey">{{notes}}</small></td>
-              <td class="p-4 w-64"><a href="{{report_link}}" target="_blank" class="px-4 py-2 bg-white hover:bg-anblue hover:border-anblue hover:text-white text-anblue border rounded border-anblue font-semibold text-sm rounded">View report</a></td>
-            </tr>
-          </tbody>
-        </table>
-        <hr>
+      <div id="reportCsv" class="flex flex-wrap w-full m-auto p-6">
       </div>
     </article>
   </section>
 </main>
-
-<script src="//load.sheetsu.com"></script>
 <?php get_footer(); ?>
+<script src="<?php echo get_template_directory_uri() ?>/js/papaparse-5.1.0.min.js"></script>
+<script>
+    function arrayToTable(tableData) {
+        var table = $(
+          '<table class="w-full">'
+          +'<thead class="text-left">'
+          +'<th class="p-4">Organization</th>'
+          +'<th class="p-4">Report status</th>'
+          +'<th class="p-4">Notes</th>'
+          +'<th class="p-4 w-64">Report link</th>'
+          +'</thead><tbody></tbody></table>'
+        );
+        $(tableData).each(function (i, rowData) {
+          var row = $(
+            '<tr class="hover:bg-grey-lightest">'
+            +'<td class="p-4">'+rowData.member_organization+'</td>'
+            +'<td class="p-4"><small class="text-white '+rowData.status_color+' p-2 rounded">'+rowData.status+'</small></td>'
+            +'<td class="p-4"><small class="text-grey">'+rowData.notes+'</small></td>'
+            +'<td class="p-4 w-64"><a href="'+rowData.report_link+`" target="_blank" class="px-4 py-2 bg-white hover:bg-anblue hover:border-anblue hover:text-white text-anblue border rounded border-anblue font-semibold text-sm rounded">View report</a></td>`
+            +'</tr>'
+          );
+          table.append(row);
+        });
+        return table;
+    }
+
+    $.ajax({
+        type: "GET",
+        url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSZWiTexvDp7yUmNfa0H1Fx2DXm5nxv7Aj2SLBhyfHQhksd8GkwBNr_pQ90iJuXJOGkObSAyYkKiqVS/pub?output=csv",
+        cache: "false",
+        success: function (data) {
+            var tmp = arrayToTable(Papa.parse(data, {header: "true"}).data);
+            $('#reportCsv').append(tmp);
+        }
+    });
+</script>
