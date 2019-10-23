@@ -24,8 +24,8 @@
 
       <nav class="tab-nav flex flex-wrap w-full lg:w-3/4 m-auto">
         <a href="" class="w-1/3 active" data-tab-name="board">Board</a>
-        <a href="" class="w-1/3" data-tab-name="independent-review-panel">Independent review panel</a>
         <a href="" class="w-1/3" data-tab-name="secretariat">Secretariat</a>
+        <a href="" class="w-1/3" data-tab-name="independent-review-panel">Independent review panel</a>
       </nav>
 
       <div class="tab-view active w-full" data-tab-view="board">
@@ -38,44 +38,6 @@
           ) );
 
           if ( $board->have_posts() ) : while ( $board->have_posts() ) : $board->the_post(); ?>
-
-          <div class="flex w-full lg:w-1/3 md:w-1/2 p-4">
-            <div class="flex flex-wrap flex-1 content-between items-center card shadow p-2">
-              <?php if ( has_post_thumbnail() ) { ?>
-                <div class="flex flex-wrap w-2/3 m-auto">
-                  <div class="round-image mb-4" style="background-image: url(<?php echo the_post_thumbnail_url(); ?>)">
-                  </div>
-                </div>
-              <?php } ?>
-              <div class="w-full px-2">
-                <h4 class="pb-1"><?php the_title(); ?></h4>
-                <span class="text-xs"><?php the_excerpt(); ?></span>
-              </div>
-              <a
-                class="member-modal-open w-full text-center bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold text-sm py-2 px-2 mr-2 rounded"
-                data-img="<?php echo the_post_thumbnail_url(); ?>"
-                data-title="<?php echo the_title(); ?>"
-                data-desc="<?php esc_html(the_content()); ?>"
-              >
-                View full profile
-              </a>
-            </div>
-          </div>
-
-          <?php endwhile; endif; wp_reset_postdata();?>
-        </div>
-      </div>
-    
-      <div class="tab-view hidden w-full" data-tab-view="independent-review-panel">
-        <div class="flex flex-wrap w-full lg:w-3/4 m-auto p-6">
-          <?php
-
-          $irp = new WP_Query( array(
-            'post_type' => 'people',
-            'category_name' => 'independent-review-panel'
-          ) );
-
-          if ( $irp->have_posts() ) : while ( $irp->have_posts() ) : $irp->the_post(); ?>
 
           <div class="flex w-full lg:w-1/3 md:w-1/2 p-4">
             <div class="flex flex-wrap flex-1 content-between items-center card shadow p-2">
@@ -139,6 +101,44 @@
                 <span class="text-xs"><?php the_content(); ?></span>
                 <p class="text-xs text-center"><a href="mailto:<?php echo $email ?>" class="text-grey hover:font-bold hover:text-anblue">Email</a> | <a href="<?php echo $linkedin ?>" class="text-grey hover:font-bold hover:text-anblue">Linkedin</a> | <a href="tel:<?php echo $phone ?>" class="text-grey hover:font-bold hover:text-anblue">Phone: <?php echo $phone ?></a></p>
               </div>
+            </div>
+          </div>
+
+          <?php endwhile; endif; wp_reset_postdata();?>
+        </div>
+      </div>
+
+      <div class="tab-view hidden w-full" data-tab-view="independent-review-panel">
+        <div class="flex flex-wrap w-full lg:w-3/4 m-auto p-6">
+          <?php
+
+          $irp = new WP_Query( array(
+            'post_type' => 'people',
+            'category_name' => 'independent-review-panel'
+          ) );
+
+          if ( $irp->have_posts() ) : while ( $irp->have_posts() ) : $irp->the_post(); ?>
+
+          <div class="flex w-full lg:w-1/3 md:w-1/2 p-4">
+            <div class="flex flex-wrap flex-1 content-between items-center card shadow p-2">
+              <?php if ( has_post_thumbnail() ) { ?>
+                <div class="flex flex-wrap w-2/3 m-auto">
+                  <div class="round-image mb-4" style="background-image: url(<?php echo the_post_thumbnail_url(); ?>)">
+                  </div>
+                </div>
+              <?php } ?>
+              <div class="w-full px-2">
+                <h4 class="pb-1"><?php the_title(); ?></h4>
+                <span class="text-xs"><?php the_excerpt(); ?></span>
+              </div>
+              <a
+                class="member-modal-open w-full text-center bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold text-sm py-2 px-2 mr-2 rounded"
+                data-img="<?php echo the_post_thumbnail_url(); ?>"
+                data-title="<?php echo the_title(); ?>"
+                data-desc="<?php esc_html(the_content()); ?>"
+              >
+                View full profile
+              </a>
             </div>
           </div>
 
