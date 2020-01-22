@@ -19,8 +19,6 @@ services:
      volumes:
        - ./wp-content/themes/an-theme:/var/www/html/wp-content/themes/an-theme
        - ./wp-content/plugins/sdp-post-types:/var/www/html/wp-content/plugins/sdp-post-types
-       - ./wp-content/plugins/elementor:/var/www/html/wp-content/plugins/elementor
-       - ./wp-content/plugins/elementor-pro:/var/www/html/wp-content/plugins/elementor-pro
        - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
      ports:
        - "80:80"
