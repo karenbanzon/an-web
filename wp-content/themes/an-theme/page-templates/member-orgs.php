@@ -1,4 +1,4 @@
-<?php /* Template Name: Team */ ?>
+<?php /* Template Name: Members */ ?>
 
 <?php get_header(); ?>
 <main id="content" class="page-content flex flex-wrap justify-center w-full">
