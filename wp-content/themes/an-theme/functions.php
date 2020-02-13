@@ -761,7 +761,7 @@ function an_filter_webinar(){
  
 	if( $query->have_posts() ) :
 		while( $query->have_posts() ): $query->the_post();
-			echo '<div class="w-full md-1/2 lg:w-1/4 p-6 hover:shadow">';
+			echo '<div class="w-full md:w-1/2 lg:w-1/4 p-6 hover:shadow">';
 			echo '<a href="';
 			echo the_permalink();
 			echo '">';
