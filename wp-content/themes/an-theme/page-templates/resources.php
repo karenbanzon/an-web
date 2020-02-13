@@ -119,7 +119,7 @@
 
         ?>
 
-        <a href="<?php the_permalink() ?>"" class="w-full lg:w-1/4 md:w-1/2 flex flex-wrap content-start items-center hover:shadow p-6">
+        <a href="<?php the_permalink() ?>"" class="w-full md-1/2 lg:w-1/4 md:w-1/2 flex flex-wrap content-start items-center hover:shadow p-6">
           <div class="w-full p-4">
             <h2 class="text-black hover:text-anblue"><?php the_title(); ?></h2>
             <div class="pt-4">

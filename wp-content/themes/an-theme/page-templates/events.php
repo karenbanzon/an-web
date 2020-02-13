@@ -37,7 +37,7 @@
         
         <?php while ( $regular->have_posts() ) : $regular->the_post(); ?>
 
-        <div class="w-full lg:w-1/4 p-6 hover:shadow">
+        <div class="w-full md-1/2 lg:w-1/4 p-6 hover:shadow">
           <a href="<?php echo the_permalink(); ?>">
             <?php if ( has_post_thumbnail() ) { ?>
               <img src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
@@ -75,7 +75,7 @@
         
         <?php while ( $regular->have_posts() ) : $regular->the_post(); ?>
 
-        <div class="w-full lg:w-1/4 p-6 hover:shadow">
+        <div class="w-full md-1/2 lg:w-1/4 p-6 hover:shadow">
           <a href="<?php echo the_permalink(); ?>">
             <?php if ( has_post_thumbnail() ) { ?>
               <img src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
@@ -114,7 +114,7 @@
         
         <?php while ( $regular->have_posts() ) : $regular->the_post(); ?>
 
-        <div class="w-full lg:w-1/4 p-6 hover:shadow">
+        <div class="w-full md-1/2 lg:w-1/4 p-6 hover:shadow">
           <a href="<?php echo the_permalink(); ?>">
             <?php if ( has_post_thumbnail() ) { ?>
               <img src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">

@@ -45,7 +45,7 @@
           $link = get_post_meta( get_the_ID(), 'member_details_site-url', true );
           
           ?>
-          <a href="<?php echo $link ?>" target="_blank" class="flex w-full lg:w-1/4 p-4">
+          <a href="<?php echo $link ?>" target="_blank" class="flex w-full md-1/2 lg:w-1/4 p-4">
             <div class="flex flex-wrap flex-1 items-center card hover:shadow p-2">
               <?php if ( has_post_thumbnail() ) { ?>
                 <img src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
@@ -74,7 +74,7 @@
           $link = get_post_meta( get_the_ID(), 'member_details_site-url', true );
           
           ?>
-          <a href="<?php echo $link ?>" target="_blank" class="flex w-full lg:w-1/4 p-4">
+          <a href="<?php echo $link ?>" target="_blank" class="flex w-full md-1/2 lg:w-1/4 p-4">
             <div class="flex flex-wrap flex-1 items-center card hover:shadow p-2">
               <?php if ( has_post_thumbnail() ) { ?>
                 <img src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
@@ -103,7 +103,7 @@
           $link = get_post_meta( get_the_ID(), 'member_details_site-url', true );
           
           ?>
-          <a href="<?php echo $link ?>" target="_blank" class="flex w-full lg:w-1/4 p-4">
+          <a href="<?php echo $link ?>" target="_blank" class="flex w-full md-1/2 lg:w-1/4 p-4">
             <div class="flex flex-wrap flex-1 items-center card hover:shadow p-2">
               <?php if ( has_post_thumbnail() ) { ?>
                 <img src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
