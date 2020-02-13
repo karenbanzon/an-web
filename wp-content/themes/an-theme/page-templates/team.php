@@ -51,11 +51,17 @@
                 <h4 class="pb-1"><?php the_title(); ?></h4>
                 <span class="text-xs"><?php the_excerpt(); ?></span>
               </div>
-              <a
+              <!-- <a
                 class="member-modal-open w-full text-center bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold text-sm py-2 px-2 mr-2 rounded"
                 data-img="<?php echo the_post_thumbnail_url(); ?>"
                 data-title="<?php echo the_title(); ?>"
                 data-desc="<?php esc_html(the_content()); ?>"
+              >
+                View full profile
+              </a> -->
+              <a
+                class="w-full text-center bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold text-sm py-2 px-2 mr-2 rounded"
+                href="<?php the_permalink() ?>"
               >
                 View full profile
               </a>
