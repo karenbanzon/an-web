@@ -27,7 +27,7 @@
       <?php
         $regular = new WP_Query( array(
           'post_type' => 'post',
-          'posts_per_page' => 3
+          'posts_per_page' => 4
         ) );
 
         if ( $regular->have_posts() ) : ?>
@@ -37,7 +37,7 @@
         
         <?php while ( $regular->have_posts() ) : $regular->the_post(); ?>
 
-        <div class="w-full lg:w-1/3 p-6 hover:shadow">
+        <div class="w-full lg:w-1/4 p-6 hover:shadow">
           <a href="<?php echo the_permalink(); ?>">
             <?php if ( has_post_thumbnail() ) { ?>
               <img src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
@@ -65,7 +65,7 @@
         $regular = new WP_Query( array(
           'post_type' => 'events',
           'category_name' => 'webinar',
-          'posts_per_page' => 3
+          'posts_per_page' => 4
         ) );
 
         if ( $regular->have_posts() ) : ?>
@@ -75,7 +75,7 @@
         
         <?php while ( $regular->have_posts() ) : $regular->the_post(); ?>
 
-        <div class="w-full lg:w-1/3 p-6 hover:shadow">
+        <div class="w-full lg:w-1/4 p-6 hover:shadow">
           <a href="<?php echo the_permalink(); ?>">
             <?php if ( has_post_thumbnail() ) { ?>
               <img src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
@@ -104,7 +104,7 @@
         $regular = new WP_Query( array(
           'post_type' => 'events',
           'category_name' => 'workshop',
-          'posts_per_page' => 3
+          'posts_per_page' => 4
         ) );
 
         if ( $regular->have_posts() ) : ?>
@@ -114,7 +114,7 @@
         
         <?php while ( $regular->have_posts() ) : $regular->the_post(); ?>
 
-        <div class="w-full lg:w-1/3 p-6 hover:shadow">
+        <div class="w-full lg:w-1/4 p-6 hover:shadow">
           <a href="<?php echo the_permalink(); ?>">
             <?php if ( has_post_thumbnail() ) { ?>
               <img src="<?php echo the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
