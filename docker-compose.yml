@@ -26,7 +26,6 @@ services:
        - ./wp-content/plugins/sdp-post-types:/var/www/html/wp-content/plugins/sdp-post-types
        - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
      ports:
-       - "80:80"
        - "3306:3306"
      restart: unless-stopped
      environment:
