@@ -5,7 +5,7 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-domains=(new.accountablenow.org www.new.accountablenow.org)
+domains=(accountablenow.org www.accountablenow.org)
 rsa_key_size=4096
 data_path="./data/certbot"
 email="info@accountablenow.org" # Adding a valid address is strongly recommended
