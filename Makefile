@@ -4,8 +4,8 @@ DEFAULT_TARGET: start-devenv
 VERSION_TAG ?= $(shell git rev-parse --short HEAD)
 
 APP_NAME = anweb
-DEVENV_DOCKER_COMPOSE = docker-compose -p $(APP_NAME) -f $(shell pwd)/docker-compose.yml
-PROD_DOCKER_COMPOSE = docker-compose -p $(APP_NAME) -f $(shell pwd)/docker-compose-prod.yml
+DEVENV_DOCKER_COMPOSE = docker-compose -p $(APP_NAME) -f $(shell pwd)/docker-compose-dev.yml
+PROD_DOCKER_COMPOSE = docker-compose -p $(APP_NAME) -f $(shell pwd)/docker-compose.yml
 
 DOCKER_IMAGE = an_wp
 VERSION_TAG = $(shell git rev-parse --short HEAD)
