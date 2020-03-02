@@ -34,7 +34,8 @@
 
           $board = new WP_Query( array(
             'post_type' => 'people',
-            'category_name' => 'board'
+            'category_name' => 'board',
+            'posts_per_page' => 15
           ) );
 
           if ( $board->have_posts() ) : while ( $board->have_posts() ) : $board->the_post();
@@ -83,7 +84,8 @@
 
           $team = new WP_Query( array(
             'post_type' => 'people',
-            'category_name' => 'secretariat'
+            'category_name' => 'secretariat',
+            'posts_per_page' => 15
           ) );
 
           if ( $team->have_posts() ) : while ( $team->have_posts() ) : $team->the_post();
@@ -125,7 +127,8 @@
 
           $irp = new WP_Query( array(
             'post_type' => 'people',
-            'category_name' => 'independent-review-panel'
+            'category_name' => 'independent-review-panel',
+            'posts_per_page' => 15
           ) );
 
           if ( $irp->have_posts() ) : while ( $irp->have_posts() ) : $irp->the_post();
