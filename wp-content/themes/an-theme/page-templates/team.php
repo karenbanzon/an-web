@@ -37,7 +37,11 @@
             'category_name' => 'board'
           ) );
 
-          if ( $board->have_posts() ) : while ( $board->have_posts() ) : $board->the_post(); ?>
+          if ( $board->have_posts() ) : while ( $board->have_posts() ) : $board->the_post();
+
+          $title = get_post_meta( get_the_ID(), 'people_details_title', true );
+          
+          ?>
 
           <div class="flex w-full lg:w-1/3 md:w-1/2 p-4">
             <div class="flex flex-wrap flex-1 content-between items-center card shadow p-2">
@@ -49,6 +53,7 @@
               <?php } ?>
               <div class="w-full px-2">
                 <h4 class="pb-1"><?php the_title(); ?></h4>
+                <p class="text-xs text-grey"><em><?php echo $title; ?></em></p>
                 <span class="text-xs"><?php the_excerpt(); ?></span>
               </div>
               <!-- <a
@@ -135,13 +140,20 @@
               <?php } ?>
               <div class="w-full px-2">
                 <h4 class="pb-1"><?php the_title(); ?></h4>
+                <p class="text-xs text-grey"><em><?php echo $title; ?></em></p>
                 <span class="text-xs"><?php the_excerpt(); ?></span>
               </div>
-              <a
+              <!-- <a
                 class="member-modal-open w-full text-center bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold text-sm py-2 px-2 mr-2 rounded"
                 data-img="<?php echo the_post_thumbnail_url(); ?>"
                 data-title="<?php echo the_title(); ?>"
                 data-desc="<?php esc_html(the_content()); ?>"
+              >
+                View full profile
+              </a> -->
+              <a
+                class="w-full text-center bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold text-sm py-2 px-2 mr-2 rounded"
+                href="<?php the_permalink() ?>"
               >
                 View full profile
               </a>
