@@ -15,7 +15,7 @@
         <h1 class="entry-title pt-4 pb-4 text-grey-darkest"><?php the_title(); ?></h1>
       </header>
       <?php } ?>
-      <div class="w-full lg:w-3/4 m-auto p-6">
+      <div class="w-full lg:w-3/4 m-auto px-6">
         <?php the_content(); ?>
       </div>
       <?php endwhile; endif; ?>
