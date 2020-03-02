@@ -128,7 +128,11 @@
             'category_name' => 'independent-review-panel'
           ) );
 
-          if ( $irp->have_posts() ) : while ( $irp->have_posts() ) : $irp->the_post(); ?>
+          if ( $irp->have_posts() ) : while ( $irp->have_posts() ) : $irp->the_post();
+          
+          $title = get_post_meta( get_the_ID(), 'people_details_title', true );
+          
+          ?>
 
           <div class="flex w-full lg:w-1/3 md:w-1/2 p-4">
             <div class="flex flex-wrap flex-1 content-between items-center card shadow p-2">
