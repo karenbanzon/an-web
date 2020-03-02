@@ -40,7 +40,7 @@
           <nav id="main-nav" class="hidden lg:block">
             <ul class="list-reset">
               <li class="nav-item group inline-block px-1 py-4">
-                <a href="<?php echo get_home_url() ?>/about-us/" class="block w-full lg:w-auto lg:flex pt-6 lg:pt-1 lg:pl-2 text-grey hover:text-anblue group-hover:text-anblue">About us &darr;</a>
+                <a href="<?php echo get_home_url() ?>/about-us/" class="block w-full lg:w-auto lg:flex pt-6 lg:pt-1 lg:pl-2 text-grey hover:text-anblue group-hover:text-anblue" onclick="return false">About us &darr;</a>
                 <ul class="nav-dropdown list-reset ml-2 p-2 z-10 bg-white shadow hidden">
                   <!-- <a href="<?php echo get_home_url() ?>/about-us/dynamic-accountability/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Dynamic Accountability</a> -->
                   <a href="<?php echo get_home_url() ?>/about-us/our-strategy/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Our strategy</a>
@@ -51,7 +51,7 @@
                 </ul>
               </li>
               <li class="nav-item group inline-block px-1 py-4">
-                <a href="<?php echo get_home_url() ?>/our-work/" class="block w-full lg:w-auto lg:flex pt-6 lg:pt-1 lg:pl-2 text-grey hover:text-anblue group-hover:text-anblue">Our work &darr;</a>
+                <a href="<?php echo get_home_url() ?>/our-work/" class="block w-full lg:w-auto lg:flex pt-6 lg:pt-1 lg:pl-2 text-grey hover:text-anblue group-hover:text-anblue" onclick="return false">Our work &darr;</a>
                 <ul class="nav-dropdown list-reset ml-2 p-2 z-10 bg-white shadow hidden">
                   <a href="<?php echo get_home_url() ?>/our-work/our-approach-to-accountability/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Our approach to accountability</a>
                   <!-- <a href="<?php echo get_home_url() ?>/our-work/12-accountability-commitments/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">12 accountability commitments</a> -->
@@ -64,7 +64,7 @@
                 <a href="<?php echo get_home_url() ?>/our-accountability/" class="block w-full lg:w-auto lg:flex pt-6 lg:pt-1 lg:pl-2 text-grey hover:text-anblue group-hover:text-anblue" onclick="return false">Our accountability &darr;</a>
                 <ul class="nav-dropdown list-reset ml-2 p-2 z-10 bg-white shadow hidden">
                   <a href="<?php echo get_home_url() ?>/our-accountability/our-policies-and-finance/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Values &amp; policies</a>
-                  <a href="<?php echo get_home_url() ?>/our-accountability/audits-finances-reports/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Reports, finances &amp; audits</a>
+                  <a href="<?php echo get_home_url() ?>/our-accountability/reports-finances-governance/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Reports, finances &amp; governance</a>
                   <a href="<?php echo get_home_url() ?>/our-accountability/feedback-and-complaints/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Feedback & complaints</a>
                 </ul>
               </li>
@@ -104,7 +104,7 @@
           <nav id="responsive-nav" class="hidden w-full">
             <ul class="list-reset">
               <li class="nav-item group block px-2">
-                <a href="<?php echo get_home_url() ?>/about-us/" class="flex justify-between block w-full lg:w-auto lg:flex px-2 py-2 text-grey-darker hover:text-anblue group-hover:text-anblue"><strong>About us</strong><span class="nav-dropdown-toggle text-anblue px-2">&darr;</span></a>
+                <a href="<?php echo get_home_url() ?>/about-us/" class="flex justify-between block w-full lg:w-auto lg:flex px-2 py-2 text-grey-darker hover:text-anblue group-hover:text-anblue" onclick="return false"><strong>About us</strong><span class="nav-dropdown-toggle text-anblue px-2">&darr;</span></a>
                 <ul class="nav-dropdown list-reset ml-2 bg-white text-sm hidden">
                   <!-- <a href="<?php echo get_home_url() ?>/about-us/dynamic-accountability/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Dynamic Accountability</a> -->
                   <a href="<?php echo get_home_url() ?>/about-us/our-strategy/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Our strategy</a>
@@ -115,7 +115,7 @@
                 </ul>
               </li>
               <li class="nav-item group block px-2">
-                <a href="<?php echo get_home_url() ?>/our-work/" class="flex justify-between block w-full lg:w-auto lg:flex px-2 py-2 text-grey-darker hover:text-anblue group-hover:text-anblue"><strong>Our work</strong><span class="nav-dropdown-toggle text-anblue px-2">&darr;</span></a>
+                <a href="<?php echo get_home_url() ?>/our-work/" class="flex justify-between block w-full lg:w-auto lg:flex px-2 py-2 text-grey-darker hover:text-anblue group-hover:text-anblue" onclick="return false"><strong>Our work</strong><span class="nav-dropdown-toggle text-anblue px-2">&darr;</span></a>
                 <ul class="nav-dropdown list-reset ml-2 bg-white text-sm hidden">
                   <a href="<?php echo get_home_url() ?>/our-work/our-approach-to-accountability/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Our approach to accountability</a>
                   <!-- <a href="<?php echo get_home_url() ?>/our-work/12-accountability-commitments/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">12 accountability commitments</a> -->
@@ -128,7 +128,7 @@
                 <a href="<?php echo get_home_url() ?>/our-accountability/" class="flex justify-between block w-full lg:w-auto lg:flex px-2 py-2 text-grey-darker hover:text-anblue group-hover:text-anblue" onclick="return false"><strong>Our accountability</strong><span class="nav-dropdown-toggle text-anblue px-2">&darr;</span></a>
                 <ul class="nav-dropdown list-reset ml-2 bg-white text-sm hidden">
                   <a href="<?php echo get_home_url() ?>/our-accountability/our-policies-and-finance/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Values &amp; policies</a>
-                  <a href="<?php echo get_home_url() ?>/our-accountability/audits-finances-reports/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Reports, finances &amp; audits</a>
+                  <a href="<?php echo get_home_url() ?>/our-accountability/reports-finances-governance/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Reports, finances &amp; audits</a>
                   <a href="<?php echo get_home_url() ?>/our-accountability/feedback-and-complaints/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Feedback & complaints</a>
                 </ul>
               </li>
