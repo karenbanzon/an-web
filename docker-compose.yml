@@ -3,7 +3,6 @@ version: '3.3'
 services:
   nginx:
     image: nginx:1.15-alpine
-    container_name: anweb_nginx
     ports:
       - "80:80"
       - "443:443"
@@ -16,7 +15,6 @@ services:
     
   certbot:
     image: certbot/certbot
-    container_name: anweb_certbot
     restart: unless-stopped
     volumes:
       - ./data/certbot/conf:/etc/letsencrypt
@@ -25,7 +23,6 @@ services:
 
   wordpress:
     image: an_wp:latest
-    container_name: anweb_wordpress
     volumes:
       - ./wp-content/themes/an-theme:/var/www/html/wp-content/themes/an-theme
       - ./wp-content/plugins/sdp-post-types:/var/www/html/wp-content/plugins/sdp-post-types
