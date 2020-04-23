@@ -43,7 +43,7 @@
           var row = $(
             '<tr class="hover:bg-grey-lightest">'
             +'<td class="p-4">'+rowData.member_organization+'</td>'
-            +'<td class="p-4"><small class="text-white '+rowData.status_color+' p-2 rounded">'+rowData.status+'</small></td>'
+            +'<td class="p-4"><small class="text-white '+rowData.status_color+' p-2 rounded block text-center">'+rowData.status+'</small></td>'
             +'<td class="p-4"><small class="text-grey">'+rowData.notes+'</small></td>'
             +'<td class="p-4 w-64"><a href="'+rowData.report_link+`" target="_blank" class="px-4 py-2 bg-white hover:bg-anblue hover:border-anblue hover:text-white text-anblue border rounded border-anblue font-semibold text-sm rounded">View report</a></td>`
             +'</tr>'
