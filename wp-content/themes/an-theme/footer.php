@@ -73,7 +73,7 @@
               <a href="<?php echo get_home_url() ?>/our-accountability/" class="flex justify-between block w-full lg:w-auto lg:flex px-2 py-2 text-grey-darker hover:text-anblue group-hover:text-anblue" onclick="return false"><strong>Our accountability</strong><span class="nav-dropdown-toggle text-anblue px-2">&darr;</span></a>
               <ul class="nav-dropdown list-reset ml-2 bg-white text-sm hidden">
                 <a href="<?php echo get_home_url() ?>/our-accountability/our-policies-and-finance/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Values &amp; policies</a>
-                <a href="<?php echo get_home_url() ?>/our-accountability/audits-finances-reports/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Reports, finances &amp; audits</a>
+                <a href="<?php echo get_home_url() ?>/our-accountability/reports-finances-governance/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Reports, finances &amp; audits</a>
                 <a href="<?php echo get_home_url() ?>/our-accountability/feedback-and-complaints/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Feedback & complaints</a>
               </ul>
             </li>
