@@ -6,16 +6,16 @@
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
     <article id="post-<?php the_ID(); ?>" <?php post_class('w-full'); ?>>
       <?php if ( has_post_thumbnail() ) { ?>
-      <header class="header page-hero p-6" style="background-image: url(<?php echo the_post_thumbnail_url(); ?>)">
+      <header class="hidden header page-hero p-6" style="background-image: url(<?php echo the_post_thumbnail_url(); ?>)">
         <div class="overlay bg-anblue"></div>
         <div class="page-title"><h1 class="entry-title w-full lg:w-3/4 ml-auto mr-auto mt-4 mb-4 pt-6 pb-6 text-white"><?php the_title(); ?></h1></div>
       </header>
       <?php } else { ?>
-      <header class="header w-full lg:w-3/4 m-auto p-6">
+      <header class="hidden header w-full lg:w-3/4 m-auto p-6">
         <h1 class="entry-title pt-4 pb-4 text-grey-darkest"><?php the_title(); ?></h1>
       </header>
       <?php } ?>
-      <div class="w-full lg:w-3/4 m-auto p-6">
+      <div class="w-full lg:w-3/4 m-auto px-6">
         <?php the_content(); ?>
       </div>
       <?php endwhile; endif; ?>
@@ -34,10 +34,15 @@
 
           $board = new WP_Query( array(
             'post_type' => 'people',
-            'category_name' => 'board'
+            'category_name' => 'board',
+            'posts_per_page' => 15
           ) );
 
-          if ( $board->have_posts() ) : while ( $board->have_posts() ) : $board->the_post(); ?>
+          if ( $board->have_posts() ) : while ( $board->have_posts() ) : $board->the_post();
+
+          $title = get_post_meta( get_the_ID(), 'people_details_title', true );
+          
+          ?>
 
           <div class="flex w-full lg:w-1/3 md:w-1/2 p-4">
             <div class="flex flex-wrap flex-1 content-between items-center card shadow p-2">
@@ -49,13 +54,20 @@
               <?php } ?>
               <div class="w-full px-2">
                 <h4 class="pb-1"><?php the_title(); ?></h4>
+                <p class="text-xs text-grey"><em><?php echo $title; ?></em></p>
                 <span class="text-xs"><?php the_excerpt(); ?></span>
               </div>
-              <a
+              <!-- <a
                 class="member-modal-open w-full text-center bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold text-sm py-2 px-2 mr-2 rounded"
                 data-img="<?php echo the_post_thumbnail_url(); ?>"
                 data-title="<?php echo the_title(); ?>"
                 data-desc="<?php esc_html(the_content()); ?>"
+              >
+                View full profile
+              </a> -->
+              <a
+                class="w-full text-center bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold text-sm py-2 px-2 mr-2 rounded"
+                href="<?php the_permalink() ?>"
               >
                 View full profile
               </a>
@@ -72,7 +84,8 @@
 
           $team = new WP_Query( array(
             'post_type' => 'people',
-            'category_name' => 'secretariat'
+            'category_name' => 'secretariat',
+            'posts_per_page' => 15
           ) );
 
           if ( $team->have_posts() ) : while ( $team->have_posts() ) : $team->the_post();
@@ -114,10 +127,15 @@
 
           $irp = new WP_Query( array(
             'post_type' => 'people',
-            'category_name' => 'independent-review-panel'
+            'category_name' => 'independent-review-panel',
+            'posts_per_page' => 15
           ) );
 
-          if ( $irp->have_posts() ) : while ( $irp->have_posts() ) : $irp->the_post(); ?>
+          if ( $irp->have_posts() ) : while ( $irp->have_posts() ) : $irp->the_post();
+          
+          $title = get_post_meta( get_the_ID(), 'people_details_title', true );
+          
+          ?>
 
           <div class="flex w-full lg:w-1/3 md:w-1/2 p-4">
             <div class="flex flex-wrap flex-1 content-between items-center card shadow p-2">
@@ -129,13 +147,20 @@
               <?php } ?>
               <div class="w-full px-2">
                 <h4 class="pb-1"><?php the_title(); ?></h4>
+                <p class="text-xs text-grey"><em><?php echo $title; ?></em></p>
                 <span class="text-xs"><?php the_excerpt(); ?></span>
               </div>
-              <a
+              <!-- <a
                 class="member-modal-open w-full text-center bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold text-sm py-2 px-2 mr-2 rounded"
                 data-img="<?php echo the_post_thumbnail_url(); ?>"
                 data-title="<?php echo the_title(); ?>"
                 data-desc="<?php esc_html(the_content()); ?>"
+              >
+                View full profile
+              </a> -->
+              <a
+                class="w-full text-center bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold text-sm py-2 px-2 mr-2 rounded"
+                href="<?php the_permalink() ?>"
               >
                 View full profile
               </a>

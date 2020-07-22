@@ -761,14 +761,14 @@ function an_filter_webinar(){
  
 	if( $query->have_posts() ) :
 		while( $query->have_posts() ): $query->the_post();
-			echo '<div class="w-full lg:w-1/3 p-6 hover:shadow">';
+			echo '<div class="w-full md:w-1/2 lg:w-1/4 p-6 hover:shadow">';
 			echo '<a href="';
 			echo the_permalink();
 			echo '">';
 			if ( has_post_thumbnail() ) { 
 				echo '<div class="bg-cover bg-center mb-2" style="background-image:url(';
 				echo the_post_thumbnail_url();
-				echo '); height: 300px;">';
+				echo '); height: 200px;">';
 				echo '</div>';
 			}
 			echo '<h4 class="text-black">';
@@ -852,7 +852,7 @@ function an_filter_workshop(){
 			if ( has_post_thumbnail() ) { 
 				echo '<div class="bg-cover bg-center mb-2" style="background-image:url(';
 				echo the_post_thumbnail_url();
-				echo '); height: 300px;">';
+				echo '); height: 200px;">';
 				echo '</div>';
 			}
 			echo '<h4 class="text-black">';
@@ -961,7 +961,9 @@ function an_filter_resource(){
 					$mems[] = array( 'name' => $mem->name, 'slug' => $mem->slug, 'id' => $mem->term_id );
 			}
 
-			echo '<a href="<?php the_permalink() ?>"" class="w-full lg:w-1/3 md:w-1/2 flex flex-wrap content-start items-center hover:shadow p-6">';
+			echo '<a href="';
+			echo the_permalink();
+			echo '" class="w-full lg:w-1/3 md:w-1/2 flex flex-wrap content-start items-center hover:shadow p-6">';
       echo '<div class="w-full p-4">';
 			echo '<h2 class="text-black hover:text-anblue">';
 			echo the_title();

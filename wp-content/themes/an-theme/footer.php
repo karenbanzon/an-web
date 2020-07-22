@@ -33,16 +33,50 @@
       <div class="flex flex-wrap content-start w-full lg:w-1/3 p-4">
         <div class="w-full rounded bg-white p-4">
           <h3 class="w-full my-2 text-black">Sign up for our newsletter!</h3>
-          <input
-            id="newslettter_signup"
-            name="newsletter_signup"
-            type="email"
-            class="rounded border border-solid border-grey my-2 w-full h-8 p-2"
-            placeholder="e.g. mail@server.com"
+          <form
+            class="layout_form cr_form cr_font"
+            action="https://seu2.cleverreach.com/f/262664-260499/wcs/"
+            method="post"
+            target="_blank"
           >
-          <button class="bg-anblue border border-anblue hover:border-anblue-dark hover:bg-anblue-dark text-white font-semibold block text-center mt-2 py-2 px-2 rounded">
-            Sign up
-          </button>
+            <div class="cr_body cr_page cr_font formbox">
+              <div class="non_sortable"></div>
+
+              <div class="editable_content">
+                <div id="5658454" rel="email" class="cr_ipe_item ui-sortable musthave">
+                  <label for="text5658454" class="itemname">Email*</label>
+                  <input id="text5658454" name="email" value="" type="text" class="rounded border border-solid border-grey my-2 w-full h-8 p-2"/>
+                </div>
+                <div
+                  id="5659015"
+                  rel="recaptcha"
+                  class="cr_ipe_item ui-sortable musthave"
+                >
+                  <script
+                    src="https://www.google.com/recaptcha/api.js"
+                    async
+                    defer
+                  ></script>
+                  <br />
+                  <div
+                    id="recaptcha_v2_widget"
+                    class="g-recaptcha"
+                    data-theme="light"
+                    data-size="normal"
+                    data-sitekey="6Lfhcd0SAAAAAOBEHmAVEHJeRnrH8T7wPvvNzEPD"
+                  ></div>
+                  <br />
+                </div>
+                <div
+                  id="5658456"
+                  rel="button"
+                  class="cr_ipe_item ui-sortable submit_container"
+                >
+                  <button type="submit" class="cr_button bg-anblue border border-anblue hover:border-anblue-dark hover:bg-anblue-dark text-white font-semibold block text-center mt-2 py-2 px-2 rounded">Subscribe</button>
+                </div>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
       <div class="flex w-full lg:w-1/3 p-4">
@@ -73,7 +107,7 @@
               <a href="<?php echo get_home_url() ?>/our-accountability/" class="flex justify-between block w-full lg:w-auto lg:flex px-2 py-2 text-grey-darker hover:text-anblue group-hover:text-anblue" onclick="return false"><strong>Our accountability</strong><span class="nav-dropdown-toggle text-anblue px-2">&darr;</span></a>
               <ul class="nav-dropdown list-reset ml-2 bg-white text-sm hidden">
                 <a href="<?php echo get_home_url() ?>/our-accountability/our-policies-and-finance/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Values &amp; policies</a>
-                <a href="<?php echo get_home_url() ?>/our-accountability/audits-finances-reports/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Reports, finances &amp; audits</a>
+                <a href="<?php echo get_home_url() ?>/our-accountability/reports-finances-governance/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Reports, finances &amp; audits</a>
                 <a href="<?php echo get_home_url() ?>/our-accountability/feedback-and-complaints/" class="block p-2 text-grey hover:text-anblue hover:bg-grey-lighter">Feedback & complaints</a>
               </ul>
             </li>
