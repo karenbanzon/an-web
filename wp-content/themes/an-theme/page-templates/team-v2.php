@@ -39,7 +39,7 @@
 
           ?>
 
-          <div class="flex w-full p-4">
+          <div class="flex w-full lg:w-1/2 p-4">
             <div class="flex flex-wrap flex-1 content-between items-center card shadow p-2">
               <?php if ( has_post_thumbnail() ) { ?>
                 <div class="flex flex-wrap w-1/4 m-auto px-2">
@@ -52,20 +52,12 @@
                 <p class="flex flex-wrap w-full text-xs text-grey"><em><?php echo $title; ?></em></p>
                 <span class="flex flex-wrap w-full text-xs"><?php the_excerpt(); ?></span>
                 <a
-                  class="flex text-center bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold text-sm py-2 px-2 mr-2 rounded"
+                  class="flex text-center bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold text-sm py-2 px-2 mr-2 mb-2 rounded"
                   href="<?php the_permalink() ?>"
                 >
                   View full profile
                 </a>
               </div>
-              <!-- <a
-                class="member-modal-open w-full text-center bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold text-sm py-2 px-2 mr-2 rounded"
-                data-img="<?php echo the_post_thumbnail_url(); ?>"
-                data-title="<?php echo the_title(); ?>"
-                data-desc="<?php esc_html(the_content()); ?>"
-              >
-                View full profile
-              </a> -->
             </div>
           </div>
 
@@ -90,7 +82,7 @@
           
           ?>
 
-          <div class="flex w-full p-4">
+          <div class="flex w-full lg:w-1/2 p-4">
             <div class="flex flex-wrap flex-1 content-start items-center card shadow p-2">
               <div class="flex flex-wrap items-center w-full">
                 <?php if ( has_post_thumbnail() ) { ?>
@@ -128,7 +120,7 @@
 
           ?>
 
-<div class="flex w-full p-4">
+          <div class="flex w-full lg:w-1/2 p-4">
             <div class="flex flex-wrap flex-1 content-between items-center card shadow p-2">
               <?php if ( has_post_thumbnail() ) { ?>
                 <div class="flex flex-wrap w-1/4 m-auto px-2">
@@ -141,20 +133,12 @@
                 <p class="flex flex-wrap w-full text-xs text-grey"><em><?php echo $title; ?></em></p>
                 <span class="flex flex-wrap w-full text-xs"><?php the_excerpt(); ?></span>
                 <a
-                  class="flex text-center bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold text-sm py-2 px-2 mr-2 rounded"
+                  class="flex text-center bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold text-sm py-2 px-2 mr-2 mb-2 rounded"
                   href="<?php the_permalink() ?>"
                 >
                   View full profile
                 </a>
               </div>
-              <!-- <a
-                class="member-modal-open w-full text-center bg-transparent hover:bg-grey-lightest hover:border-anblue-dark hover:text-anblue-dark text-anblue border rounded border-anblue font-semibold text-sm py-2 px-2 mr-2 rounded"
-                data-img="<?php echo the_post_thumbnail_url(); ?>"
-                data-title="<?php echo the_title(); ?>"
-                data-desc="<?php esc_html(the_content()); ?>"
-              >
-                View full profile
-              </a> -->
             </div>
           </div>
 
