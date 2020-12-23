@@ -56,7 +56,7 @@
     $.ajax({
         type: "GET",
         url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSZWiTexvDp7yUmNfa0H1Fx2DXm5nxv7Aj2SLBhyfHQhksd8GkwBNr_pQ90iJuXJOGkObSAyYkKiqVS/pub?output=csv",
-        cache: "false",
+        cache: "true",
         success: function (data) {
             var tmp = arrayToTable(Papa.parse(data, {header: "true"}).data);
             $('#reportCsv').append(tmp);
